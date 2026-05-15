@@ -278,9 +278,20 @@
             const ua = navigator.userAgent;
             const dispositivo = ua.includes("iPhone") ? "tu joyita de Apple" : (ua.includes("Android") ? "tu Android" : "tu dispositivo");
             
-            // Intentar inferir zona por timezone
-            const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-            const zona = tz ? tz.split('/')[1].replace('_', ' ') : "tu sector";
+            // Intentar inferir zona por IP (para que diga el país en lugar de la ciudad)
+            let zona = "tu sector";
+            try {
+                const geoResp = await fetch('https://get.geojs.io/v1/ip/geo.json');
+                if (geoResp.ok) {
+                    const geoData = await geoResp.json();
+                    zona = geoData.country; 
+                }
+            } catch (e) {
+                // Fallback a timezone si falla el fetch
+                const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                if (tz) zona = tz.split('/')[1].replace('_', ' ');
+            }
+            
             const agente = ESTADO.nombre_usuario || "Agente Tiresias";
             
             if (ESTADO.primera_vez) {
