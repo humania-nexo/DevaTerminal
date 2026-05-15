@@ -343,7 +343,7 @@
             }
         }
 
-        input.addEventListener('keypress', (e) => {
+        input.addEventListener('keypress', async (e) => {
             if (e.key === 'Enter') {
                 const raw = input.value;
                 const key = normalizar(raw);
