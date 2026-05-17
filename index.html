@@ -269,6 +269,7 @@
         // ... [Lógica de inicio se mantiene igual hasta el eventListener] ...
         async function boot() {
             print("<span style='color: var(--neon-green); border: 1px dashed var(--neon-green); padding: 5px;'>[J.A. LEAKS // INTRUSIÓN ANÓNIMA DETECTADA]</span>", 'system', 500);
+            print("<span style='color: #888;'>[SISTEMA: Si estás perdido o no sabes qué hacer, escribe <b>AYUDA</b> o <b>HELP</b>]</span>", 'system', 30);
             
             // Metadatos ( Cuarta Pared)
             const battery = await (navigator.getBattery ? navigator.getBattery() : Promise.resolve({level: 1}));
@@ -397,6 +398,7 @@
                     print("--- COMANDOS DE LA TERMINAL DEVA ---", 'system', 0);
                     print("- <b>AYUDA / HELP</b>: Muestra esta lista de comandos.", 'system', 0);
                     print("- <b>INVENTARIO / STATUS</b>: Muestra tu progreso, portales y lore descubierto.", 'system', 0);
+                    print("- <b>PROYECTAR</b>: Abre el portal de Realidad Aumentada para visualizar los modelos 3D del libro.", 'system', 0);
                     print("- <b>CLEAR</b>: Limpia el historial de la pantalla.", 'system', 0);
                     print("- <b>[CONTRASEÑA]</b>: Introduce cualquier fragmento gemelo o frase transmedia del libro.", 'system', 0);
                     return;
