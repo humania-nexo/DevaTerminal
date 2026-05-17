@@ -17,7 +17,7 @@ const SEMILLAS_TRANSMEDIA = {
     "proyectar": {
         tipo: "ar",
         msg: "DEVA: Activando módulo de Realidad Aumentada. Prepara los marcadores.",
-        link: "../proiectio_webar/index.html",
+        link: "../../../proiectio_webar/index.html",
         nombre: "Módulo AR"
     }
 };
