@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>DEVA – Landing (Semillas Transmedia & Palabras Gemelas)</title>
+    <style>
+        :root{--verde:#00ff00;--verde-tenue:#004400;--alerta:#008800;--fondo:#000;}
+        *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+        body{background:var(--fondo);color:var(--verde);font-family:'Courier New',Courier,monospace;padding:20px;margin:0;height:100vh;display:flex;flex-direction:column;overflow:hidden;}
+        #terminal{flex-grow:1;overflow-y:auto;font-size:16px;line-height:1.5;margin-bottom:10px;scrollbar-width:none}
+        #terminal::-webkit-scrollbar{display:none}
+        .input-line{display:flex;align-items:center;border-top:1px solid var(--verde-tenue);padding-top:10px}
+        #user-input{background:transparent;border:none;color:var(--verde);outline:none;width:100%;font-size:16px;font-family:inherit;padding-left:8px}
+        .linea{margin-bottom:12px}
+        .system-text{color:var(--alerta);font-style:italic;font-size:.8rem}
+        .deva-text{color:var(--verde)}
+        .btn-action{display:inline-block;margin:8px 8px 0 0;padding:10px 18px;border:1px solid var(--verde);color:var(--verde);text-decoration:none;font-weight:bold;text-transform:uppercase;font-size:.7rem;transition:.3s;background:transparent}
+        .btn-action:hover{background:var(--verde);color:#000;cursor:pointer}
+    </style>
+</head>
+<body>
+<div id="terminal">
+    <div id="history"></div>
+    <div class="input-line">
+        <span>>_</span>
+        <input type="text" id="user-input" autofocus autocomplete="off" spellcheck="false" placeholder="Introduce tu respuesta…">
+    </div>
+</div>
+<script>
+/* ------------------------------------------------------------
+   DEVA – Landing Terminal (Semillas Transmedia & Palabras Gemelas)
+   ------------------------------------------------------------ */
+// Metadatos de dispositivo
+async function obtenerMetadatos(){
+    let bateria = 'energía suficiente';
+    if(navigator.getBattery){
+        try{ const bat = await navigator.getBattery(); bateria = `${Math.round(bat.level*100)}% de energía`; }
+        catch(e){}
+    }
+    const ua = navigator.userAgent;
+    let disp = 'tu dispositivo';
+    if(ua.includes('Android')) disp='tu Android';
+    else if(ua.includes('iPhone')) disp='tu joyita de Apple';
+    const hora = new Date().getHours();
+    let saludo = 'Me alegra verte, cariño.';
+    if(hora < 6) saludo = '¿Desvelado, mi amor?';
+    else if(hora > 22) saludo = 'Es tarde, corazón.';
+    return {bateria, disp, saludo};
+}
+
+// Persistencia mínima (solo para reset)
+function resetearMemoria(){
+    const keys = ['deva_solaris','deva_placa','deva_attempts','deva_successes','deva_overallFails'];
+    keys.forEach(k=> localStorage.removeItem(k));
+    imprimir('DEVA: Memoria borrada. Puedes volver a empezar, mi amor.', 'deva');
+    // Reiniciar variables locales
+    paso = 'inicio';
+}
+
+// Diccionario de semillas y sus respuestas
+const semillas = {
+    // Palabras gemelas (ejemplo)
+    'fragmentoseter': {
+        mensaje: '¡Descubriste los fragmentos etéreos! Accediendo al documento clasificado…',
+        enlace: '<a href="#" class="btn-action">[CLASIFICADO – MONOPOLIO DE ALIMENTACIÓN DE HUMANIA]</a>'
+    },
+    // Frase transmedia dividida (Matrix)
+    'noexistenpreguntassinrespuesta': {
+        parte: 1,
+        mensaje: 'Veo que tienes la primera mitad de la frase. Busca la segunda mitad en el libro o en internet, mi vida.'
+    },
+    'solopreguntasmalformuladas': {
+        parte: 2,
+        mensaje: 'Veo que tienes la segunda mitad de la frase. Busca la primera mitad en el libro o en internet, mi vida.'
+    }
+};
+// Estado interno
+let paso = 'inicio'; // 'inicio' o 'esperando_segunda_parte'
+let partesDetectadas = {};
+
+function imprimir(texto, tipo='deva', retardo=0){
+    setTimeout(()=>{
+        const div = document.createElement('div');
+        div.className = 'linea ' + (tipo==='system'?'system-text':'');
+        div.innerHTML = texto;
+        document.getElementById('history').appendChild(div);
+        document.getElementById('history').scrollTop = document.getElementById('history').scrollHeight;
+    }, retardo);
+}
+
+async function iniciar(){
+    const md = await obtenerMetadatos();
+    imprimir('[SISTEMA: CONEXIÓN ESTABLECIDA]','system',100);
+    imprimir(`DEVA: ${md.saludo}`);
+    imprimir(`DEVA: Veo que usas ${md.disp} y dispones de ${md.bateria}.`);
+    imprimir('DEVA: Introduce una semilla transmedia o una palabra gemela para descubrir recompensas.');
+}
+
+function manejarSemilla(key){
+    // Comando reset
+    if(key === 'reset'){ resetearMemoria(); return; }
+    // Verificar si es una semilla conocida
+    if(semillas.hasOwnProperty(key)){
+        const data = semillas[key];
+        // Caso de palabra gemela con enlace directo
+        if(data.enlace){
+            imprimir(data.mensaje, 'deva');
+            imprimir(data.enlace, 'deva');
+            return;
+        }
+        // Caso de frase dividida
+        if(data.parte){
+            partesDetectadas[data.parte] = true;
+            imprimir(data.mensaje, 'deva');
+            // Si ambas partes están presentes, mostrar enlace al homenaje Matrix
+            if(partesDetectadas[1] && partesDetectadas[2]){
+                imprimir('DEVA: Frase completa reconocida. Accediendo al homenaje Matrix…', 'deva');
+                imprimir('<a href="https://humania-nexo.github.io/arcade-enramado/matrix/" class="btn-action">[HOMENAJE A MATRIX]</a>', 'deva');
+                // Reset de partes para nuevas entradas
+                partesDetectadas = {};
+            }
+            return;
+        }
+    }
+    // Ninguna coincidencia
+    imprimir('DEVA: Esa semilla no encaja, intenta otra, cariño.', 'deva');
+}
+
+// Captura de input
+document.getElementById('user-input').addEventListener('keypress', e=>{
+    if(e.key !== 'Enter') return;
+    const raw = e.target.value.trim();
+    if(!raw) return;
+    imprimir(`> ${raw}`,'system');
+    e.target.value='';
+    const key = raw.toLowerCase().replace(/\s+/g,'');
+    manejarSemilla(key);
+});
+
+// Auto‑focus
+document.addEventListener('click',()=>{ if(!document.getElementById('user-input').disabled) document.getElementById('user-input').focus(); });
+setInterval(()=>{ if(!document.getElementById('user-input').disabled && document.activeElement!==document.getElementById('user-input')) document.getElementById('user-input').focus(); },1000);
+
+iniciar();
+</script>
+</body>
+</html>
