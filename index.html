@@ -264,6 +264,12 @@
             localStorage.setItem('deva_estado', JSON.stringify(ESTADO));
         }
 
+        // Si el lector recarga en medio de la pregunta de nombre, reseteamos para evitar estado inconsistente
+        if (ESTADO.fase_nombre === 1 || ESTADO.fase_nombre === 2) {
+            ESTADO.fase_nombre = 0;
+            guardarEstado();
+        }
+
         // Las bases de datos SEMILLAS_TRANSMEDIA y PALABRAS_GEMELAS se cargan desde database.js
 
         // ... [Lógica de inicio se mantiene igual hasta el eventListener] ...
@@ -366,15 +372,35 @@
 
                 // --- Lógica de Petición de Nombre ---
                 if (ESTADO.fase_nombre === 1) {
-                    if (key === "si" || key === "s" || key === "claro" || key === "yes") {
-                        print("DEVA: ¡Qué bien! Dime, ¿cómo te llamas, tesoro?", 'deva', 8);
-                        ESTADO.fase_nombre = 2;
-                    } else {
-                        print("DEVA: Lo entiendo, mi vida. El anonimato es nuestra mejor arma. Seguirás siendo Tiresias para mí.", 'deva', 8);
-                        ESTADO.fase_nombre = 3;
+                    // Evitar interceptar si es un comando, semilla o palabra gemela legítima
+                    const esComando = ['clear', 'delete', 'borrar', 'help', 'ayuda', 'status', 'inventario'].includes(key);
+                    let esSemillaOGema = SEMILLAS_TRANSMEDIA[key] || PALABRAS_GEMELAS[key];
+                    if (!esSemillaOGema) {
+                        for (const [id, gema] of Object.entries(PALABRAS_GEMELAS)) {
+                            if (gema.fragmentos.includes(key)) { esSemillaOGema = true; break; }
+                        }
                     }
-                    guardarEstado();
-                    return;
+                    if (!esSemillaOGema) {
+                        for (const [seed, data] of Object.entries(SEMILLAS_TRANSMEDIA)) {
+                            if (data.pistas && data.pistas.includes(key)) { esSemillaOGema = true; break; }
+                        }
+                    }
+
+                    if (esComando || esSemillaOGema) {
+                        // Si es una semilla o comando, abortamos la pregunta de nombre para procesarla
+                        ESTADO.fase_nombre = 0;
+                        guardarEstado();
+                    } else {
+                        if (key === "si" || key === "s" || key === "claro" || key === "yes") {
+                            print("DEVA: ¡Qué bien! Dime, ¿cómo te llamas, tesoro?", 'deva', 8);
+                            ESTADO.fase_nombre = 2;
+                        } else {
+                            print("DEVA: Lo entiendo, mi vida. El anonimato es nuestra mejor arma. Seguirás siendo Tiresias para mí.", 'deva', 8);
+                            ESTADO.fase_nombre = 3;
+                        }
+                        guardarEstado();
+                        return;
+                    }
                 }
                 
                 if (ESTADO.fase_nombre === 2) {
