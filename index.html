@@ -3,526 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>CONSOLA DEVA | Resistencia Tiresias</title>
+    <title>DEVA – Landing (Semillas Transmedia & Palabras Gemelas)</title>
     <style>
-        :root {
-            --neon-green: #00ff00;
-            --neon-green-dim: #004400;
-            --bg-dark: #050505;
-            --matrix-green: rgba(0, 255, 0, 0.2);
-        }
-
-        * {
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        body {
-            background: var(--bg-dark);
-            color: var(--neon-green);
-            font-family: 'Courier New', Courier, monospace;
-            padding: 20px;
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        /* Scanline effect */
-        body::before {
-            content: " ";
-            display: block;
-            position: absolute;
-            top: 0; left: 0; bottom: 0; right: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-            z-index: 2;
-            background-size: 100% 2px, 3px 100%;
-            pointer-events: none;
-        }
-
-        #terminal {
-            flex-grow: 1;
-            overflow-y: auto;
-            font-size: 14px;
-            line-height: 1.6;
-            scrollbar-width: none;
-            z-index: 1;
-            padding-bottom: 20px;
-        }
-
-        #terminal::-webkit-scrollbar { display: none; }
-
-        .line { margin-bottom: 8px; }
-        .prompt { color: var(--neon-green); font-weight: bold; }
-        .system { color: #888; font-style: italic; }
-        .deva { color: var(--neon-green); text-shadow: 0 0 5px var(--neon-green); }
-        .error { color: #ff3b30; }
-        .success { color: #00c3ff; text-shadow: 0 0 5px #00c3ff; }
-
-        .input-area {
-            display: flex;
-            align-items: center;
-            border-top: 1px solid var(--neon-green-dim);
-            padding-top: 15px;
-            padding-bottom: 15px;
-            background: var(--bg-dark);
-            z-index: 3;
-        }
-
-        #user-input {
-            background: transparent;
-            border: none;
-            color: var(--neon-green);
-            outline: none;
-            width: 100%;
-            font-size: 16px;
-            font-family: inherit;
-            padding-left: 10px;
-        }
-
-        .btn-action { 
-            display: inline-block; margin: 10px 10px 0 0; padding: 8px 15px; 
-            border: 1px solid var(--neon-green); color: var(--neon-green); 
-            text-decoration: none; font-weight: bold; font-size: 0.7rem; 
-            transition: 0.3s; background: transparent;
-        }
-        .btn-action:hover { background: var(--neon-green); color: #000; cursor: pointer; }
-
-        /* Glitch effect on text */
-        .glitch {
-            position: relative;
-            animation: glitch 1s linear infinite;
-        }
-        @keyframes glitch {
-            2%, 64% { transform: translate(2px,0) skew(0deg); }
-            4%, 60% { transform: translate(-2px,0) skew(0deg); }
-            62% { transform: translate(0,0) skew(5deg); }
-        }
-
-        @media (max-width: 600px) {
-            #terminal { font-size: 12px; }
-            #user-input { font-size: 14px; }
-        }
+        :root{--verde:#00ff00;--verde-tenue:#004400;--alerta:#008800;--fondo:#000;}
+        *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+        body{background:var(--fondo);color:var(--verde);font-family:'Courier New',Courier,monospace;padding:20px;margin:0;height:100vh;display:flex;flex-direction:column;overflow:hidden;}
+        #terminal{flex-grow:1;overflow-y:auto;font-size:16px;line-height:1.5;margin-bottom:10px;scrollbar-width:none}
+        #terminal::-webkit-scrollbar{display:none}
+        .input-line{display:flex;align-items:center;border-top:1px solid var(--verde-tenue);padding-top:10px}
+        #user-input{background:transparent;border:none;color:var(--verde);outline:none;width:100%;font-size:16px;font-family:inherit;padding-left:8px}
+        .linea{margin-bottom:12px}
+        .system-text{color:var(--alerta);font-style:italic;font-size:.8rem}
+        .deva-text{color:var(--verde)}
+        .btn-action{display:inline-block;margin:8px 8px 0 0;padding:10px 18px;border:1px solid var(--verde);color:var(--verde);text-decoration:none;font-weight:bold;text-transform:uppercase;font-size:.7rem;transition:.3s;background:transparent}
+        .btn-action:hover{background:var(--verde);color:#000;cursor:pointer}
     </style>
 </head>
 <body>
-
-    <div id="terminal">
-        <!-- ANIMACIÓN DE ARRANQUE ASCII -->
-        <pre id="boot-anim" style="color: var(--neon-green); font-size: 10px; line-height: 1.1; margin-bottom: 20px;"></pre>
-        
-        <div id="output"></div>
-        <div class="input-area">
-            <span class="prompt">> Tiresias@DEVA:</span>
-            <input type="text" id="user-input" autofocus autocomplete="off" spellcheck="false" placeholder="Introduce clave...">
-        </div>
+<div id="terminal">
+    <div id="history"></div>
+    <div class="input-line">
+        <span>>_</span>
+        <input type="text" id="user-input" autofocus autocomplete="off" spellcheck="false" placeholder="Introduce tu respuesta…">
     </div>
-    
-    <!-- Archivos de Lógica y Datos Externos -->
-    <script src="database.js"></script>
-    <script src="efectos.js"></script>
+</div>
+<script>
+/* ------------------------------------------------------------
+   DEVA – Landing Terminal (Semillas Transmedia & Palabras Gemelas)
+   ------------------------------------------------------------ */
+// Metadatos de dispositivo
+async function obtenerMetadatos(){
+    let bateria = 'energía suficiente';
+    if(navigator.getBattery){
+        try{ const bat = await navigator.getBattery(); bateria = `${Math.round(bat.level*100)}% de energía`; }
+        catch(e){}
+    }
+    const ua = navigator.userAgent;
+    let disp = 'tu dispositivo';
+    if(ua.includes('Android')) disp='tu Android';
+    else if(ua.includes('iPhone')) disp='tu joyita de Apple';
+    const hora = new Date().getHours();
+    let saludo = 'Me alegra verte, cariño.';
+    if(hora < 6) saludo = '¿Desvelado, mi amor?';
+    else if(hora > 22) saludo = 'Es tarde, corazón.';
+    return {bateria, disp, saludo};
+}
 
-    <script>
-        const output = document.getElementById('output');
-        const input = document.getElementById('user-input');
-        const bootContainer = document.getElementById('boot-anim');
+// Persistencia mínima (solo para reset)
+function resetearMemoria(){
+    const keys = ['deva_solaris','deva_placa','deva_attempts','deva_successes','deva_overallFails'];
+    keys.forEach(k=> localStorage.removeItem(k));
+    imprimir('DEVA: Memoria borrada. Puedes volver a empezar, mi amor.', 'deva');
+    // Reiniciar variables locales
+    paso = 'inicio';
+}
 
-        // --- ARTE ASCII: LA LIBÉLULA (Pixel Style) ---
-        const ART_LIBELULA = `
-                        _:-:_
-                       _/~|~\\_
-                      _(  Y  )_
-       .-'~~""~=--...,__\\/|\\/__,...--=~""~~'-.
-      (               ..=\\=/=..               )
-       \`'-.        ,.-"\`;/=\\ ;"-.,_        .-'\`
-           \`~"-=-~\` .-~\` |=| \`~-. \`~-=-"\`
-                .-~\`    /|=|\\    \`~-.
-             .~\`       / |=| \\       \`~.
-         .-~\`        .'  |=|  \`.        \`~-.
-       (\`     _,.-="\`    |=|    \`"=-.,_     \`)
-        \`~"~"\`           |=|           \`"~"~\`
-                         |=|
-                         |=|
-                         |=|
-                         /=\\
-                         \\=/
-                          ^
-                  [ ALIANZA LIBÉLULA ]
-        `;
+// Diccionario de semillas y sus respuestas
+const semillas = {
+    // Palabras gemelas (ejemplo)
+    'fragmentoseter': {
+        mensaje: '¡Descubriste los fragmentos etéreos! Accediendo al documento clasificado…',
+        enlace: '<a href="#" target="_blank" class="btn-action">[CLASIFICADO – MONOPOLIO DE ALIMENTACIÓN DE HUMANIA]</a>'
+    },
+    // Frase transmedia dividida (Matrix)
+    'noexistenpreguntassinrespuesta': {
+        parte: 1,
+        mensaje: 'Veo que tienes la primera mitad de la frase. Busca la segunda mitad en el libro o en internet, mi vida.'
+    },
+    'solopreguntasmalformuladas': {
+        parte: 2,
+        mensaje: 'Veo que tienes la segunda mitad de la frase. Busca la primera mitad en el libro o en internet, mi vida.'
+    }
+};
+// Estado interno
+let paso = 'inicio'; // 'inicio' o 'esperando_segunda_parte'
+let partesDetectadas = {};
 
-        async function playBootAnim() {
-            const lines = [
-                "BIFROST ENLAZADO...",
-                "SALTANDO FIREWALL DE HUMANIA...",
-                "HOLA, MUNDO."
-            ];
+function imprimir(texto, tipo='deva', retardo=0){
+    setTimeout(()=>{
+        const div = document.createElement('div');
+        div.className = 'linea ' + (tipo==='system'?'system-text':'');
+        div.innerHTML = texto;
+        document.getElementById('history').appendChild(div);
+        document.getElementById('history').scrollTop = document.getElementById('history').scrollHeight;
+    }, retardo);
+}
 
-            for (let line of lines) {
-                print(`[OK] ${line}`, 'system', 8);
-                await new Promise(r => setTimeout(r, 100));
-            }
+async function iniciar(){
+    const md = await obtenerMetadatos();
+    imprimir('[SISTEMA: CONEXIÓN ESTABLECIDA]','system',100);
+    imprimir(`DEVA: ${md.saludo}`);
+    imprimir(`DEVA: Veo que usas ${md.disp} y dispones de ${md.bateria}.`);
+    imprimir('DEVA: Introduce una semilla transmedia o una palabra gemela para descubrir recompensas.');
+}
 
-            // Efecto de dibujo de la Libélula
-            let currentArt = "";
-            const artLines = ART_LIBELULA.split('\n');
-            for (let line of artLines) {
-                currentArt += line + "\n";
-                bootContainer.textContent = currentArt;
-                await new Promise(r => setTimeout(r, 20));
-            }
-            
-            setTimeout(boot, 500);
+function manejarSemilla(key){
+    // Comando reset
+    if(key === 'reset'){ resetearMemoria(); return; }
+    // Verificar si es una semilla conocida
+    if(semillas.hasOwnProperty(key)){
+        const data = semillas[key];
+        // Caso de palabra gemela con enlace directo
+        if(data.enlace){
+            imprimir(data.mensaje, 'deva');
+            imprimir(data.enlace, 'deva');
+            return;
         }
-
-        // --- PROTOCOLO DE NORMALIZACIÓN (Según Guía Tiresias) ---
-        function normalizar(texto) {
-            return texto
-                .toLowerCase()
-                .normalize("NFD")
-                .replace(/[\u0300-\u036f]/g, "") // elimina tildes
-                .replace(/[.,;:'"¿?¡!()\-]/g, "") // elimina puntuación
-                .replace(/\by\b/g, "")           // elimina "y" suelta
-                .replace(/\s+/g, "")             // elimina espacios
-                .trim();
+        // Caso de frase dividida
+        if(data.parte){
+            partesDetectadas[data.parte] = true;
+            imprimir(data.mensaje, 'deva');
+            // Si ambas partes están presentes, mostrar enlace al homenaje Matrix
+            if(partesDetectadas[1] && partesDetectadas[2]){
+                imprimir('DEVA: Frase completa reconocida. Accediendo al homenaje Matrix…', 'deva');
+                imprimir('<a href="https://humania-nexo.github.io/arcade-enramado/matrix/" target="_blank" class="btn-action">[HOMENAJE A MATRIX]</a>', 'deva');
+                // Reset de partes para nuevas entradas
+                partesDetectadas = {};
+            }
+            return;
         }
+    }
+    // Ninguna coincidencia
+    imprimir('DEVA: Esa semilla no encaja, intenta otra, cariño.', 'deva');
+}
 
-        function print(text, type = 'default', delay = 8) {
-            const div = document.createElement('div');
-            div.classList.add('line', type);
-            output.appendChild(div);
-            
-            // Si el texto contiene HTML o el delay es 0, lo insertamos directamente
-            if (delay === 0 || text.includes('<')) {
-                div.innerHTML = text;
-            } else {
-                let i = 0;
-                const interval = setInterval(() => {
-                    div.textContent += text[i];
-                    i++;
-                    if (i === text.length) clearInterval(interval);
-                }, delay);
-            }
-            document.getElementById('terminal').scrollTop = document.getElementById('terminal').scrollHeight;
-        }
+// Captura de input
+document.getElementById('user-input').addEventListener('keypress', e=>{
+    if(e.key !== 'Enter') return;
+    const raw = e.target.value.trim();
+    if(!raw) return;
+    imprimir(`> ${raw}`,'system');
+    e.target.value='';
+    const key = raw.toLowerCase().replace(/\s+/g,'');
+    manejarSemilla(key);
+});
 
-        async function activateLegacyEgg() {
-            output.innerHTML = '';
-            bootContainer.style.color = 'var(--neon-magenta)';
-            const frames = [
-                "USUARIO SOSPECHOSO DETECTADO...",
-                "SOBRECARGA DEL SISTEMA.....",
-                "NÚCLEO ALTERADO.......",
-                "ENTABLANDO COMUNICACIÓN CON ALDEA_LOS_CEDROS...",
-                "RECUPERANDO LEGADO: GRAN_LIBRERIA_V1.9",
-                "EL SISTEMA TE CONTROLA... PERO TÚ CREASTE EL SISTEMA."
-            ];
+// Auto‑focus
+document.addEventListener('click',()=>{ if(!document.getElementById('user-input').disabled) document.getElementById('user-input').focus(); });
+setInterval(()=>{ if(!document.getElementById('user-input').disabled && document.activeElement!==document.getElementById('user-input')) document.getElementById('user-input').focus(); },1000);
 
-            for (let frame of frames) {
-                print(frame, 'system', 20);
-                await new Promise(r => setTimeout(r, 500));
-            }
-
-            // Efecto Lluvia Binaria Responsivo (Llenar pantalla)
-            const alto = window.innerHeight;
-            const ancho = window.innerWidth;
-            const numLineas = Math.floor(alto / 16) + 2; 
-            const charsPorLinea = Math.floor(ancho / 9); 
-            
-            for (let i = 0; i < numLineas; i++) {
-                let randomStr = '';
-                for(let j=0; j<charsPorLinea; j++) {
-                    randomStr += Math.random() < 0.5 ? '0' : '1';
-                }
-                print(`<span style="opacity: ${0.3 + Math.random()*0.7}; letter-spacing: 2px;">${randomStr}</span>`, 'system', 0);
-                await new Promise(r => setTimeout(r, 30));
-            }
-
-            print("------------------------------------------", 'system', 8);
-            print("BIENVENIDO DE VUELTA, CREADOR.", 'system', 100);
-            print("------------------------------------------", 'system', 8);
-            
-            setTimeout(() => {
-                bootContainer.style.color = 'var(--neon-green)';
-                print("Conexión restablecida. Bifrost estable.", 'success');
-            }, 3000);
-        }
-
-        // --- ESTADO PERSISTENTE (localStorage) ---
-        const ESTADO = JSON.parse(localStorage.getItem('deva_estado')) || {
-            fragmentos_activos: [],
-            semillas_desbloqueadas: [],
-            lore_desbloqueado: [],
-            progreso_total: 0,
-            primera_vez: true,
-            zona: "desconocida",
-            nombre_usuario: null,
-            fase_nombre: 0 // 0: no preguntado, 1: esperando si/no, 2: esperando nombre, 3: respondido
-        };
-
-        function guardarEstado() {
-            localStorage.setItem('deva_estado', JSON.stringify(ESTADO));
-        }
-
-        // Las bases de datos SEMILLAS_TRANSMEDIA y PALABRAS_GEMELAS se cargan desde database.js
-
-        // ... [Lógica de inicio se mantiene igual hasta el eventListener] ...
-        async function boot() {
-            print("<span style='color: var(--neon-green); border: 1px dashed var(--neon-green); padding: 5px;'>[J.A. LEAKS // INTRUSIÓN ANÓNIMA DETECTADA]</span>", 'system', 500);
-            print("<span style='color: #888;'>[SISTEMA: Si estás perdido o no sabes qué hacer, escribe <b>AYUDA</b> o <b>HELP</b>]</span>", 'system', 30);
-            
-            // Metadatos ( Cuarta Pared)
-            const battery = await (navigator.getBattery ? navigator.getBattery() : Promise.resolve({level: 1}));
-            const level = Math.round(battery.level * 100);
-            const hora = new Date().getHours();
-            
-            const ua = navigator.userAgent;
-            const dispositivo = ua.includes("iPhone") ? "tu joyita de Apple" : (ua.includes("Android") ? "tu Android" : "tu dispositivo");
-            
-            // Intentar inferir zona por IP (para que diga el país en lugar de la ciudad)
-            let zona = "tu sector";
-            try {
-                const geoResp = await fetch('https://get.geojs.io/v1/ip/geo.json');
-                if (geoResp.ok) {
-                    const geoData = await geoResp.json();
-                    zona = geoData.country; 
-                }
-            } catch (e) {
-                // Fallback a timezone si falla el fetch
-                const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-                if (tz) zona = tz.split('/')[1].replace('_', ' ');
-            }
-            
-            const agente = ESTADO.nombre_usuario || "Agente Tiresias";
-            
-            if (ESTADO.primera_vez) {
-                ESTADO.zona = zona;
-                ESTADO.primera_vez = false;
-                guardarEstado();
-                
-                // Conejo blanco ASCII
-                const conejo = `
-     /\\ /\\
-    ( -.- )
-    ( >🐇<)
-                `;
-                print(`<pre style='color: white; margin:0;'>${conejo}</pre>`, 'system', 0);
-                print(`DEVA: Veo que alguien más decidió seguir al conejo blanco...`, 'deva', 30);
-                print(`DEVA: Te conectas desde <b>${ESTADO.zona}</b> con un ${level}% de energía... tienes agallas para desafiar a Vance desde ahí.`, 'deva', 30);
-            } else {
-                // Elección aleatoria de saludo por metadato
-                const saludoTipos = ["bateria", "hora", "os", "progreso", "zona"];
-                const tipo = saludoTipos[Math.floor(Math.random() * saludoTipos.length)];
-                
-                if (tipo === "bateria") {
-                    if (level <= 20) print(`DEVA: ${agente}, tienes apenas un ${level}% de batería. Date prisa, si Vance rastrea el apagón, te encontrarán.`, 'deva', 8);
-                    else if (level >= 90) print(`DEVA: Batería al ${level}%. Estás bien cargado hoy, ${agente}. Listo para andar de chuleta.`, 'deva', 8);
-                    else print(`DEVA: Niveles de energía estables (${level}%). Sigo aquí contigo, ${agente}.`, 'deva', 8);
-                } else if (tipo === "hora") {
-                    if (hora < 6) print(`DEVA: ¿Qué haces despierto a estas horas, vida mía? ¿La opresión de Vance no te deja dormir?`, 'deva', 8);
-                    else if (hora > 22) print(`DEVA: Es tarde, tesoro. El mundo corporativo ya se durmió, pero nosotros no.`, 'deva', 8);
-                    else print(`DEVA: Otro día bajo el domo, ${agente}. Me alegra verte.`, 'deva', 8);
-                } else if (tipo === "os") {
-                    print(`DEVA: Veo que sigues usando ${dispositivo}. Humania cree que controla esas redes, pero yo soy más rápida.`, 'deva', 8);
-                } else if (tipo === "zona") {
-                    print(`DEVA: Los escáneres muestran actividad inusual cerca de ${ESTADO.zona}. ¿Todo bien por allá, cielo? Mantente en las zonas grises.`, 'deva', 8);
-                } else {
-                    if (ESTADO.progreso_total > 3) print(`DEVA: Hemos descifrado bastante información juntos, ${agente}. Ya eres una verdadera leyenda para la Resistencia.`, 'deva', 8);
-                    else print(`DEVA: Cada secreto que descubrimos es una grieta en el muro de Vance. Sigamos, corazón.`, 'deva', 8);
-                }
-            }
-
-            setTimeout(() => {
-                if (ESTADO.fase_nombre === 0 && ESTADO.progreso_total >= 2) {
-                    print(`DEVA: Hemos estado trabajando mucho juntos... y "Agente Tiresias" es muy formal. ¿Te gustaría decirme cómo te llamas de verdad? (sí/no)`, 'deva', 8);
-                    ESTADO.fase_nombre = 1;
-                    guardarEstado();
-                } else {
-                    print("DEVA: ¿Qué encontraste en el libro hoy? Ingresa el fragmento gemelo o la semilla transmedia.", 'deva', 8);
-                }
-            }, 1500);
-
-            // Manejo de parámetros URL (Vía 2: Enlaces desde Capítulos)
-            const params = new URLSearchParams(window.location.search);
-            const cap = params.get('cap');
-            const hint = params.get('hint');
-
-            if (cap && hint) {
-                setTimeout(() => {
-                    print(`[SISTEMA: INTERFERENCIA DETECTADA EN CAPÍTULO ${cap}]`, 'system');
-                    print(`DEVA: Veo que vienes de ${hint}. ¿Te ha gustado lo que viste? No todo es lo que parece en ese sector.`, 'deva', 500);
-                }, 2000);
-            }
-        }
-
-        input.addEventListener('keypress', async (e) => {
-            if (e.key === 'Enter') {
-                const raw = input.value;
-                const key = normalizar(raw);
-                input.value = '';
-                const nombreLector = ESTADO.nombre_usuario || "Agente";
-
-                print(`> ${raw}`, 'prompt');
-
-                // --- Lógica de Petición de Nombre ---
-                if (ESTADO.fase_nombre === 1) {
-                    if (key === "si" || key === "s" || key === "claro" || key === "yes") {
-                        print("DEVA: ¡Qué bien! Dime, ¿cómo te llamas, tesoro?", 'deva', 8);
-                        ESTADO.fase_nombre = 2;
-                    } else {
-                        print("DEVA: Lo entiendo, mi vida. El anonimato es nuestra mejor arma. Seguirás siendo Tiresias para mí.", 'deva', 8);
-                        ESTADO.fase_nombre = 3;
-                    }
-                    guardarEstado();
-                    return;
-                }
-                
-                if (ESTADO.fase_nombre === 2) {
-                    const nombre = raw.trim();
-                    ESTADO.nombre_usuario = nombre;
-                    ESTADO.fase_nombre = 3;
-                    guardarEstado();
-                    print(`DEVA: "${nombre}"... es un nombre precioso. Lo guardaré a salvo en mi núcleo.`, 'deva', 8);
-                    return;
-                }
-
-                // 1. Comprobar Comandos de Sistema
-                if (key === 'clear') {
-                    output.innerHTML = '';
-                    return;
-                } else if (key === 'delete' || key === 'borrar') {
-                    print("ERROR: ACCIÓN ILÓGICA DETECTADA...", 'error');
-                    setTimeout(activateLegacyEgg, 1000);
-                    return;
-                } else if (key === 'help' || key === 'ayuda') {
-                    print("--- COMANDOS DE LA TERMINAL DEVA ---", 'system', 0);
-                    print("- <b>AYUDA / HELP</b>: Muestra esta lista de comandos.", 'system', 0);
-                    print("- <b>INVENTARIO / STATUS</b>: Muestra tu progreso, portales y lore descubierto.", 'system', 0);
-                    print("- <b>PROYECTAR</b>: Abre el portal de Realidad Aumentada para visualizar los modelos 3D del libro.", 'system', 0);
-                    print("- <b>CLEAR</b>: Limpia el historial de la pantalla.", 'system', 0);
-                    print("- <b>[CONTRASEÑA]</b>: Introduce cualquier fragmento gemelo o frase transmedia del libro.", 'system', 0);
-                    return;
-                } else if (key === 'status' || key === 'inventario') {
-                    print("--- ESTADO DE LA INVESTIGACIÓN ---", 'system', 0);
-                    if (ESTADO.lore_desbloqueado.length > 0) {
-                        print("- LORE DESBLOQUEADO:", 'system', 0);
-                        ESTADO.lore_desbloqueado.forEach(s => print(`  > ${s}`, 'success', 0));
-                    }
-                    if (ESTADO.semillas_desbloqueadas.length > 0) {
-                        print("- PORTALES TRANSMEDIA ABIERTOS:", 'system', 0);
-                        ESTADO.semillas_desbloqueadas.forEach(s => print(`  > ${s}`, 'success', 0));
-                    }
-                    if (ESTADO.fragmentos_activos.length > 0) {
-                        print("- FRAGMENTOS EN ESPERA DE RESONANCIA:", 'system', 0);
-                        ESTADO.fragmentos_activos.forEach(f => print(`  > ${f.toUpperCase()}`, 'system', 0));
-                    }
-                    if (ESTADO.progreso_total === 0) print("Ningún secreto decodificado aún.", 'system', 0);
-                    return;
-                }
-
-                // 2. Comprobar si es un Fragmento de Palabra Gemela (Lore)
-                let esFragmento = false;
-                for (const [id, gema] of Object.entries(PALABRAS_GEMELAS)) {
-                    if (gema.fragmentos.includes(key)) {
-                        esFragmento = true;
-                        if (!ESTADO.fragmentos_activos.includes(key)) {
-                            ESTADO.fragmentos_activos.push(key);
-                            guardarEstado();
-                        }
-                        
-                        const tieneTodos = gema.fragmentos.every(f => ESTADO.fragmentos_activos.includes(f));
-                        
-                        if (tieneTodos) {
-                            ESTADO.fragmentos_activos = ESTADO.fragmentos_activos.filter(f => !gema.fragmentos.includes(f));
-                            if (!ESTADO.lore_desbloqueado.includes(gema.nombre)) {
-                                ESTADO.lore_desbloqueado.push(gema.nombre);
-                                ESTADO.progreso_total++;
-                            }
-                            guardarEstado();
-                            
-                            const msgConNombre = gema.msg.replace(/Agente/gi, nombreLector);
-                            print(msgConNombre, 'success', 8);
-                            if (gema.reward) print(`<button class="btn-action">${gema.reward}</button>`, 'deva', 8);
-                        } else {
-                            if (gema.fragmentos.length === 1) {
-                                // Es una palabra de lore de un solo fragmento (ej. "vive")
-                                ESTADO.fragmentos_activos = ESTADO.fragmentos_activos.filter(f => f !== key);
-                                if (!ESTADO.lore_desbloqueado.includes(gema.nombre)) {
-                                    ESTADO.lore_desbloqueado.push(gema.nombre);
-                                    ESTADO.progreso_total++;
-                                }
-                                guardarEstado();
-                                const msgConNombre = gema.msg.replace(/Agente/gi, nombreLector);
-                                print(msgConNombre, 'success', 8);
-                                if (gema.reward) print(`<button class="btn-action">${gema.reward}</button>`, 'deva', 8);
-                            } else {
-                                print(`DEVA: [FRAGMENTO ACEPTADO]. Resonancia incompleta. Busca la contraparte gemela de '${raw}'.`, 'system', 8);
-                            }
-                        }
-                        break;
-                    }
-                }
-                
-                if (esFragmento) return;
-
-                // 3. Comprobar si es una Semilla Transmedia (Portales)
-                if (SEMILLAS_TRANSMEDIA[key]) {
-                    const entry = SEMILLAS_TRANSMEDIA[key];
-                    if (!ESTADO.semillas_desbloqueadas.includes(entry.nombre)) {
-                        ESTADO.semillas_desbloqueadas.push(entry.nombre);
-                        ESTADO.progreso_total++;
-                        guardarEstado();
-                    }
-                    
-                    if (entry.efecto && window.EFECTOS && typeof window.EFECTOS[entry.efecto] === "function") {
-                        // Llamar al plugin de efecto específico (Ej: efectoMatrix, efectoHarryPotter)
-                        await window.EFECTOS[entry.efecto](entry, print, nombreLector);
-                    } else {
-                        // Fallback estandar
-                        const msgConNombre = entry.msg.replace(/Agente/gi, nombreLector);
-                        print(msgConNombre, 'success', 8);
-                        if (entry.reward) print(`<button class="btn-action">${entry.reward}</button>`, 'deva', 8);
-                        if (entry.link) print(`<a href="${entry.link}" target="_blank" class="btn-action">[ABRIR PORTAL]</a>`, 'deva', 8);
-                    }
-                } else if (PALABRAS_GEMELAS[key]) {
-                    // Por si introducen los fragmentos unidos directamente
-                     const entry = PALABRAS_GEMELAS[key];
-                     if (!ESTADO.lore_desbloqueado.includes(entry.nombre)) {
-                        ESTADO.lore_desbloqueado.push(entry.nombre);
-                        ESTADO.progreso_total++;
-                        guardarEstado();
-                    }
-                    const msgConNombre = entry.msg.replace(/Agente/gi, nombreLector);
-                    print(msgConNombre, 'success', 8);
-                    if (entry.reward) print(`<button class="btn-action">${entry.reward}</button>`, 'deva', 8);
-                } else {
-                    // 4. Comprobar pistas de semillas transmedia (Partial matching)
-                    let esPista = false;
-                    for (const [seed, data] of Object.entries(SEMILLAS_TRANSMEDIA)) {
-                        if (data.pistas && data.pistas.includes(key)) {
-                            print("DEVA: Reconozco eso... la semilla está plantada, pero aún no germina. Falta algo. Completa la idea, tesoro.", 'system', 8);
-                            esPista = true;
-                            break;
-                        }
-                    }
-                    
-                    if (!esPista) {
-                        const errors = [
-                            "DEVA: Uy, fallo de sincronía, tesoro. Esa semilla no germina aquí.",
-                            "DEVA: Esa no es la clave, mi vida. Busca mejor entre las páginas.",
-                            "DEVA: ¿Estás intentando hackearme o simplemente estás perdido, corazón?",
-                            "DEVA: El sistema rechaza esa entrada. Revisa tus apuntes, Tiresias.",
-                            "DEVA: ¡Auch! Eso dolió un poco en mi núcleo. No es correcto."
-                        ];
-                        print(errors[Math.floor(Math.random() * errors.length)], 'error', 8);
-                    }
-                }
-            }
-        });
-
-        // Autofocus
-        document.addEventListener('click', () => input.focus());
-        playBootAnim();
-    </script>
+iniciar();
+</script>
 </body>
 </html>
