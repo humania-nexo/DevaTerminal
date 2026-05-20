@@ -11,7 +11,7 @@ const SEMILLAS_TRANSMEDIA = {
         pistas: ["noexistenpreguntassinrespuesta", "solopreguntasmalformuladas"],
         efecto: "efectoMatrix",
         msg: "DEVA: Wake up... Digo, veo que tú también sigues al conejo blanco, Agente.",
-        link: "#", // Enlace al homenaje de Matrix
+        link: "https://humania-nexo.github.io/arcade-enramado/matrix/", // Enlace al homenaje de Matrix
         nombre: "Homenaje Matrix"
     },
     "proyectar": {
