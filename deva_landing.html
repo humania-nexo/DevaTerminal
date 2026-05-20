@@ -63,7 +63,7 @@ const semillas = {
     // Palabras gemelas (ejemplo)
     'fragmentoseter': {
         mensaje: '¡Descubriste los fragmentos etéreos! Accediendo al documento clasificado…',
-        enlace: '<a href="#" class="btn-action">[CLASIFICADO – MONOPOLIO DE ALIMENTACIÓN DE HUMANIA]</a>'
+        enlace: '<a href="#" target="_blank" class="btn-action">[CLASIFICADO – MONOPOLIO DE ALIMENTACIÓN DE HUMANIA]</a>'
     },
     // Frase transmedia dividida (Matrix)
     'noexistenpreguntassinrespuesta': {
@@ -116,7 +116,7 @@ function manejarSemilla(key){
             // Si ambas partes están presentes, mostrar enlace al homenaje Matrix
             if(partesDetectadas[1] && partesDetectadas[2]){
                 imprimir('DEVA: Frase completa reconocida. Accediendo al homenaje Matrix…', 'deva');
-                imprimir('<a href="https://humania-nexo.github.io/arcade-enramado/matrix/" class="btn-action">[HOMENAJE A MATRIX]</a>', 'deva');
+                imprimir('<a href="https://humania-nexo.github.io/arcade-enramado/matrix/" target="_blank" class="btn-action">[HOMENAJE A MATRIX]</a>', 'deva');
                 // Reset de partes para nuevas entradas
                 partesDetectadas = {};
             }
