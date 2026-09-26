@@ -39,5 +39,21 @@ window.EFECTOS = {
         const msgConNombre = entry.msg.replace(/Agente/gi, nombreLector);
         printFn(msgConNombre, 'success', 8);
         if (entry.link) printFn(`<a href="${entry.link}" target="_blank" class="btn-action">[CRUZAR BIFROST: HOGWARTS]</a>`, 'deva', 8);
+    },
+
+    // 3. Homenaje a Interstellar (Christopher Nolan)
+    efectoInterestelar: async function(entry, printFn, nombreLector) {
+        printFn("[SISTEMA: ANOMALÍA GRAVITACIONAL DETECTADA // SECTOR GARGANTÚA]", 'system', 30);
+        await new Promise(r => setTimeout(r, 800));
+        
+        printFn("<span style='color: #f59e0b; font-family: monospace; font-size: 1.05em;'>🌌 \"No entres dócilmente en esa buena noche. Rabia, rabia contra la agonía de la luz.\"</span>", 'system', 40);
+        await new Promise(r => setTimeout(r, 1400));
+        
+        printFn("<span style='color: #38bdf8;'>TARS: Nivel de humor al 75%. Horizonte de sucesos estabilizado, Cooper.</span>", 'deva', 20);
+        await new Promise(r => setTimeout(r, 800));
+        
+        const msgConNombre = entry.msg.replace(/Agente/gi, nombreLector);
+        printFn(msgConNombre, 'success', 8);
+        if (entry.link) printFn(`<a href="${entry.link}" target="_blank" class="btn-action">[CRUZAR BIFROST: GARGANTÚA // ENDURANCE II]</a>`, 'deva', 8);
     }
 };

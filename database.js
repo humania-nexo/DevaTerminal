@@ -128,6 +128,13 @@ const BIFROST_PORTALES = {
         url: "https://humania-nexo.github.io/arcade-enramado/matrix/",
         categoria: "Constructos Clandestinos"
     },
+    "interestelar": {
+        id: "interestelar",
+        nombre: "Homenaje Interestelar // Gargantúa",
+        descripcion: "Constructo de gravedad cuántica y navegación espacial profunda.",
+        url: "https://humania-nexo.github.io/arcade-enramado/nolan-interestelar/",
+        categoria: "Constructos Clandestinos"
+    },
     "uprota": {
         id: "uprota",
         nombre: "Nodo Rebelde UPROTA",
@@ -140,7 +147,7 @@ const BIFROST_PORTALES = {
 // --- 3. SEMILLAS TRANSMEDIA (Homenajes & Portales Secretos) ---
 const SEMILLAS_TRANSMEDIA = {
     "jurosolemnementequemisintencionesnosonbuenas": {
-        pistas: ["jurosolemnemente", "misintencionesnosonbuenas"],
+        pistas: ["jurosolemnemente", "misintencionesnosonbuenas", "harrypotter", "merodeador"],
         efecto: "efectoHarryPotter",
         msg: "DEVA: Portal de Homenaje detectado. ¿Tus intenciones no son buenas, Agente? Bienvenido a la Sección 9 3/4.",
         link: "#",
@@ -153,6 +160,14 @@ const SEMILLAS_TRANSMEDIA = {
         link: "https://humania-nexo.github.io/arcade-enramado/matrix/",
         nombre: "Homenaje Matrix",
         bifrost_id: "matrix"
+    },
+    "noentresdocilmenteenestabuenanoche": {
+        pistas: ["noentresdocilmente", "interestelar", "interstellar", "gargantua", "tars", "cooper"],
+        efecto: "efectoInterestelar",
+        msg: "DEVA: Coordenadas del Tesseracto alineadas. El amor es la única cosa que trasciende las dimensiones del tiempo y del espacio.",
+        link: "https://humania-nexo.github.io/arcade-enramado/nolan-interestelar/",
+        nombre: "Homenaje Interestelar",
+        bifrost_id: "interestelar"
     },
     "proyectar": {
         tipo: "ar",
