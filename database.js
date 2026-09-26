@@ -137,8 +137,8 @@ const BIFROST_PORTALES = {
     },
     "harrypotter": {
         id: "harrypotter",
-        nombre: "Crónicas de la Selección Perdida // Hogwarts",
-        descripcion: "Constructo mágico de casas, alquimia mental y pergaminos antiguos.",
+        nombre: "Crónicas de la Selección Perdida // Homenaje del Merodeador",
+        descripcion: "Constructo de academia mágica olvidada, alquimia mental y pergaminos antiguos.",
         url: "https://humania-nexo.github.io/arcade-enramado/cronicas-seleccion-perdida/",
         categoria: "Constructos Clandestinos"
     },
