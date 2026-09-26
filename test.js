@@ -9,11 +9,11 @@ const output = document.getElementById('output');
 const input = document.getElementById('user-input');
 const bootContainer = document.getElementById('boot-anim');
 
-// --- 1. ARTE ASCII DE LA ALIANZA LIBÉLULA ---
+// --- 1. ARTE ASCII DE LA ALIANZA LIBÉLULA (SIMETRÍA CALIBRADA) ---
 const ART_LIBELULA = `
-                _:-:_
-               _/~|~\\_
-              _(  Y  )_
+                 _:-:_
+                _/~|~\\_
+               _(  Y  )_
 .-'~~""~=--...,__\\/|\\/__,...--=~""~~'-.
 (               ..=\\=/=..               )
  \`'-.        ,.-"\`;/=\\ ;"-.,_        .-'\`
@@ -23,13 +23,13 @@ const ART_LIBELULA = `
    .-~\`        .'  |=|  \`.        \`~-.
  (\`     _,.-="\`    |=|    \`"=-.,_     \`)
   \`~"~"\`           |=|           \`"~"~\`
-                   |=|
-                   |=|
-                   |=|
-                   /=\\
-                   \\=/
-                    ^
-            [ ALIANZA LIBÉLULA ]
+                  |=|
+                  |=|
+                  |=|
+                  /=\\
+                  \\=/
+                   ^
+         [ ALIANZA LIBÉLULA ]
 `;
 
 // --- 2. GESTIÓN DE MEMORIA PERSISTENTE COMPARTIDA (localStorage) ---
@@ -111,7 +111,7 @@ function print(text, type = 'default', delay = 8) {
     if (term) term.scrollTop = term.scrollHeight;
 }
 
-// --- 5. ANIMACIÓN DE ARRANQUE INMERSIVA ---
+// --- 5. ANIMACIÓN DE ARRANQUE & SPLASH SCREEN TEMPORAL DE CONEXIÓN ---
 async function playBootAnim() {
     const lines = [
         "ENLAZANDO PROTOCOLO J.A. LEAKS...",
@@ -121,7 +121,7 @@ async function playBootAnim() {
 
     for (let line of lines) {
         print(`[OK] ${line}`, 'system', 6);
-        await new Promise(r => setTimeout(r, 80));
+        await new Promise(r => setTimeout(r, 70));
     }
 
     let currentArt = "";
@@ -129,10 +129,26 @@ async function playBootAnim() {
     for (let line of artLines) {
         currentArt += line + "\n";
         bootContainer.textContent = currentArt;
-        await new Promise(r => setTimeout(r, 16));
+        await new Promise(r => setTimeout(r, 14));
     }
+
+    // Logo de conexión de la Libélula visible durante unos segundos
+    await new Promise(r => setTimeout(r, 2200));
+
+    // Transición suave y despeje total para dejar espacio al diálogo
+    bootContainer.style.transition = 'opacity 0.4s ease, height 0.4s ease';
+    bootContainer.style.opacity = '0';
+    output.style.transition = 'opacity 0.3s ease';
+    output.style.opacity = '0';
+
+    await new Promise(r => setTimeout(r, 400));
     
-    setTimeout(iniciarSistema, 400);
+    bootContainer.innerHTML = '';
+    bootContainer.style.display = 'none';
+    output.innerHTML = '';
+    output.style.opacity = '1';
+
+    iniciarSistema();
 }
 
 // --- 6. SECUENCIA PRINCIPAL & ENRUTADOR DUAL DE MODO ---
