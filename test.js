@@ -184,9 +184,9 @@ async function iniciarSistema() {
         const conejo = `
  /\\ /\\
 ( -.- )
-( >🐇<)
+( >🐇< )
         `;
-        print(`<pre style='color: var(--neon-green); margin:0;'>${conejo}</pre>`, 'system', 0);
+        print(`<pre style='color: #ffffff; text-shadow: 0 0 8px rgba(255, 255, 255, 0.75); margin: 6px 0; font-weight: bold;'>${conejo}</pre>`, 'system', 0);
         print(`DEVA: Veo que alguien más decidió seguir al conejo blanco hasta aquí...`, 'deva', 20);
         print(`DEVA: Te conectas desde <b>${ESTADO.zona}</b> en ${dispositivo} con un ${batteryLevel}% de energía. Tienes agallas para desafiar a Vance desde ahí.`, 'deva', 20);
     } else {
