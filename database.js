@@ -107,12 +107,12 @@ OBSERVACIÓN: Los Sica no bloquean el dolor; transforman el canal neuronal en ru
 
 // --- 2. DIRECTORIO DEL BIFROST (PORTALES & ENLACES DIMENSIONALES) ---
 const BIFROST_PORTALES = {
-    "proiectio": {
-        id: "proiectio",
-        nombre: "Portal Central Proiectio",
-        descripcion: "Plataforma de inmersión y catálogo de submundos de Humania.",
-        url: "https://www.proiect.io/",
-        categoria: "Nodos Centrales"
+    "sapiensiaclan": {
+        id: "sapiensiaclan",
+        nombre: "Portal SAPIENSIA Clan",
+        descripcion: "Santuario creativo y sede de la hermandad creadora transmedia.",
+        url: "https://sapiensiaclan.com",
+        categoria: "Nodos Aliados"
     },
     "ar": {
         id: "ar",

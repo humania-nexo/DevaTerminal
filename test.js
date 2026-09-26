@@ -42,7 +42,7 @@ const ESTADO_DEFAULT = {
     progreso_total: 0,
     capitulos_visitados: [],
     leaks_desbloqueados: [],
-    bifrost_desbloqueados: ["proiectio", "ar"],
+    bifrost_desbloqueados: ["sapiensiaclan", "ar"],
     fragmentos_activos: [],
     lore_desbloqueado: [],
     leak_activo_en_pantalla: null
@@ -53,7 +53,13 @@ let ESTADO = (function() {
         const guardado = localStorage.getItem('deva_estado');
         if (guardado) {
             const parsed = JSON.parse(guardado);
-            return Object.assign({}, ESTADO_DEFAULT, parsed);
+            let merged = Object.assign({}, ESTADO_DEFAULT, parsed);
+            // Purgar proiectio de la lista de portales activos si venía de sesiones viejas
+            merged.bifrost_desbloqueados = (merged.bifrost_desbloqueados || []).filter(id => id !== 'proiectio');
+            if (!merged.bifrost_desbloqueados.includes('sapiensiaclan')) {
+                merged.bifrost_desbloqueados.unshift('sapiensiaclan');
+            }
+            return merged;
         }
     } catch(e) {
         console.warn("Storage no disponible, usando memoria volatil:", e);
@@ -392,13 +398,14 @@ window.mostrarDocumentoLeak = function(id) {
 // --- 9. BIFROST: RENDERIZADOR DE PORTALES DESBLOQUEADOS ---
 function renderizarBifrost() {
     print("--- [RED BIFROST // PORTALES DIMENSIONALES] ---", 'success', 0);
+    print("<span style='color: #38bdf8;'>ℹ️ <i>Todos los portales dimensionales y nodos de resistencia que vayas desbloqueando aparecerán en esta lista.</i></span>", 'system', 0);
     print("Selecciona cualquier portal activo para cruzar las dimensiones:", 'system', 0);
     
-    // Nodos fijos y descubiertos
+    // Nodos descubiertos y aliados
     const keys = Object.keys(BIFROST_PORTALES);
     keys.forEach(k => {
         const portal = BIFROST_PORTALES[k];
-        const isUnlocked = ESTADO.bifrost_desbloqueados.includes(portal.id) || portal.id === 'proiectio' || portal.id === 'ar';
+        const isUnlocked = ESTADO.bifrost_desbloqueados.includes(portal.id) || portal.id === 'sapiensiaclan' || portal.id === 'ar';
         
         if (isUnlocked) {
             print(`• <b>${portal.nombre}</b>: <span style="color:#888;">${portal.descripcion}</span><br><a href="${portal.url}" target="_blank" class="btn-action">[ENLAZAR: ${portal.nombre.toUpperCase()}]</a>`, 'deva', 0);
