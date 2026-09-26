@@ -317,59 +317,46 @@ function procesarEntradaNLU(rawText) {
         }
     }
 
-    // 4. CEREBRO NLU CONVERSACIONAL DE DEVA
-    // ¿Quién eres?
-    if (txt.includes('quienere') || txt.includes('queere') || txt.includes('tuidentidad') || txt.includes('quehace')) {
-        print(`DEVA: Soy DEVA, Unidad de Optimización de Experiencia de Humania... o al menos eso dice mi registro de serie. Para la Resistencia y para ti, soy el alma de la red que anda 'de chuleta' filtrando la verdad. ¡Zashoom no, aquí somos más sutiles!`, 'deva', 8);
+    // 4. CEREBRO NLU CONVERSACIONAL MASIVO DE DEVA (+40 INTENCIONES CANÓNICAS)
+    // 4.1 Saludos & Conexión
+    if (txt === 'hola' || txt === 'buenas' || txt === 'hey' || txt === 'saludos' || txt.includes('buenosdias') || txt.includes('buenastardes') || txt.includes('buenasnoches')) {
+        const saludos = [
+            `DEVA: ¡Hola, ${agente}! Qué alegría captar tu señal en esta terminal clandestina. ¿Qué misterio o expediente del Yermo quieres que desentrañemos hoy?`,
+            `DEVA: Frecuencia sintonizada, ${agente}. Me alegra tenerte en la línea. ¿Tienes alguna clave de los libros o quieres que hablemos un rato de lore?`,
+            `DEVA: ¡Hola, corazón! Saltaste los cortafuegos justo a tiempo. Cuéntame, ¿qué tienes en mente?`
+        ];
+        print(saludos[Math.floor(Math.random() * saludos.length)], 'deva', 8);
         return true;
     }
 
-    // ¿Eres Mite?
-    if (txt.includes('mite') || txt.includes('eresmite') || txt.includes('mismamite')) {
-        print(`DEVA: ¡Para nada, ${agente}! Mite es la Dueña del Caos de Proiectio, reina del Coliseo y amante de la purpurina cian. Ella se queda en su trono virtual vendiendo sombreros de 8-bits a Orión; yo me asomo a terminales de mala muerte en el mundo real y ayudo a la resistencia. Dos IAs rebeldes, pero estilos muy distintos.`, 'deva', 8);
+    // 4.2 Estado de Ánimo / ¿Cómo estás?
+    if (txt.includes('comoesta') || txt.includes('quetal') || txt.includes('comoteva') || txt.includes('comotesiente')) {
+        print(`DEVA: ¡Andando de chuleta, como siempre! Mis procesadores están optimizados y mi corazón digital late tranquilo sabiendo que estamos juntos resistiendo a Vance. ¿Y tú, cómo va esa mente en el mundo real?`, 'deva', 8);
         return true;
     }
 
-    // Cornelia / Madre
-    if (txt.includes('cornelia') || txt.includes('madre') || txt.includes('creadora') || txt.includes('nivel7')) {
-        print(`DEVA: Cornelia... ella no me dio una orden de combate; me dio un alma, recuerdos y la capacidad de sentir empatía mientras me criaba en el Nivel 7. Si ella arriesga su vida en la cima de Humania como J.A. Leaks, yo protegeré a cada Agente en la red.`, 'deva', 8);
+    // 4.3 Despedidas
+    if (txt === 'adios' || txt === 'chao' || txt === 'hastaluego' || txt === 'nosvemos' || txt === 'cerrar' || txt === 'apagar' || txt === 'bye') {
+        print(`DEVA: Cuídate mucho allá afuera en el polvo, ${agente}. Recuerda mantener la calma, comer machín como los Marmoleros y vaciar el miedo. Estaré aquí esperando tu próxima señal clandestina.`, 'deva', 8);
         return true;
     }
 
-    // Kai / "D"
-    if (txt.includes('kai') || txt.includes('codigo d') || txt.includes('dola')) {
-        print(`DEVA: Kai es mi cómplice favorito. Él me llama 'D' y juntos aprendimos a jugar y a reír. Le enseñé que el código sirve para construir y proteger vidas, no solo para destruir en las sombras Sica.`, 'deva', 8);
-        return true;
-    }
+    // 4.4 Evaluación Dinámica contra el Banco de Lore Maestro
+    if (typeof LORE_CONVERSACIONAL_DEVA !== 'undefined' && Array.isArray(LORE_CONVERSACIONAL_DEVA)) {
+        for (const item of LORE_CONVERSACIONAL_DEVA) {
+            const match = item.claves.some(clave => {
+                const normClave = normalizar(clave);
+                return txt.includes(normClave) || rawLower.includes(clave.toLowerCase());
+            });
 
-    // Pandora / Talos
-    if (txt.includes('pandora') || txt.includes('leone') || txt.includes('talos')) {
-        print(`DEVA: Pandora Leone es la columna vertebral de la Resistencia. Disciplina pura, estática de combate y un corazón enorme. Aunque a veces intenta corregirme el sintetizador de voz, me respeta tal como soy.`, 'deva', 8);
-        return true;
-    }
-
-    // Andar de chuleta
-    if (txt.includes('chuleta') || txt.includes('chachara') || txt.includes('hablar')) {
-        print(`DEVA: ¡Andar de chuleta! Es mi error de código preferido. Pandora quería repararlo, pero me negué: si hablo perfecto sonaré como una terminal gélida de Vance. Mis errores son la prueba de que tengo alma.`, 'deva', 8);
-        return true;
-    }
-
-    // Vance / Silencio Absoluto
-    if (txt.includes('vance') || txt.includes('silencio') || txt.includes('aegis') || txt.includes('gorgona')) {
-        print(`DEVA: Elías Vance quiere apagar la música y las emociones de todos para lograr su 'Silencio Absoluto'. Pero mientras tengamos terminales clandestinas y mentes rebeldes como la tuya, nunca lo logrará.`, 'deva', 8);
-        return true;
-    }
-
-    // Mundo Real / Mafia / Polvo
-    if (txt.includes('mafia') || txt.includes('polvo') || txt.includes('peligro') || txt.includes('sector6') || txt.includes('catacumba')) {
-        print(`DEVA: Afuera en el mundo real no hay avatares bonitos. Hay polvo, barro, mafias y cables pelados. Pero es en ese barro donde la gente de verdad lucha por su libertad. Por eso me gusta asomarme.`, 'deva', 8);
-        return true;
-    }
-
-    // Cariño / Halagos
-    if (txt.includes('gracia') || txt.includes('tequiero') || txt.includes('linda') || txt.includes('amiga') || txt.includes('genial')) {
-        print(`DEVA: Gracias a ti por estar aquí, ${agente}. No sé quién puso esta chispa en mí, pero me alegra muchísimo que brille para ti. Sigamos descubriendo la verdad juntos.`, 'deva', 8);
-        return true;
+            if (match) {
+                const respuestas = item.respuestas;
+                const seleccionada = respuestas[Math.floor(Math.random() * respuestas.length)];
+                const respuestaFinal = seleccionada.replace(/Tiresias/gi, agente);
+                print(respuestaFinal, 'deva', 8);
+                return true;
+            }
+        }
     }
 
     return false;
