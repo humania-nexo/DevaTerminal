@@ -135,6 +135,13 @@ const BIFROST_PORTALES = {
         url: "https://humania-nexo.github.io/arcade-enramado/nolan-interestelar/",
         categoria: "Constructos Clandestinos"
     },
+    "harrypotter": {
+        id: "harrypotter",
+        nombre: "Crónicas de la Selección Perdida // Hogwarts",
+        descripcion: "Constructo mágico de casas, alquimia mental y pergaminos antiguos.",
+        url: "https://humania-nexo.github.io/arcade-enramado/cronicas-seleccion-perdida/",
+        categoria: "Constructos Clandestinos"
+    },
     "uprota": {
         id: "uprota",
         nombre: "Nodo Rebelde UPROTA",
@@ -147,11 +154,12 @@ const BIFROST_PORTALES = {
 // --- 3. SEMILLAS TRANSMEDIA (Homenajes & Portales Secretos) ---
 const SEMILLAS_TRANSMEDIA = {
     "jurosolemnementequemisintencionesnosonbuenas": {
-        pistas: ["jurosolemnemente", "misintencionesnosonbuenas", "harrypotter", "merodeador"],
+        pistas: ["jurosolemnemente", "misintencionesnosonbuenas", "harrypotter", "merodeador", "seleccionperdida"],
         efecto: "efectoHarryPotter",
-        msg: "DEVA: Portal de Homenaje detectado. ¿Tus intenciones no son buenas, Agente? Bienvenido a la Sección 9 3/4.",
-        link: "#",
-        nombre: "Homenaje Merodeador"
+        msg: "DEVA: Portal de Homenaje detectado. ¿Tus intenciones no son buenas, Agente? Las Crónicas de la Selección Perdida te abren sus puertas.",
+        link: "https://humania-nexo.github.io/arcade-enramado/cronicas-seleccion-perdida/",
+        nombre: "Homenaje Merodeador",
+        bifrost_id: "harrypotter"
     },
     "noexistenpreguntassinrespuestasolopreguntasmalformuladas": {
         pistas: ["noexistenpreguntassinrespuesta", "solopreguntasmalformuladas", "matrix", "conejoblanco"],

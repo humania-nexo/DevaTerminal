@@ -38,7 +38,7 @@ window.EFECTOS = {
         
         const msgConNombre = entry.msg.replace(/Agente/gi, nombreLector);
         printFn(msgConNombre, 'success', 8);
-        if (entry.link) printFn(`<a href="${entry.link}" target="_blank" class="btn-action">[CRUZAR BIFROST: HOGWARTS]</a>`, 'deva', 8);
+        if (entry.link) printFn(`<a href="${entry.link}" target="_blank" class="btn-action">[CRUZAR BIFROST: CRÓNICAS DE LA SELECCIÓN PERDIDA]</a>`, 'deva', 8);
     },
 
     // 3. Homenaje a Interstellar (Christopher Nolan)
