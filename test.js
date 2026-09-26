@@ -227,7 +227,7 @@ async function iniciarSistema() {
                 // Memoria Cruzada / Retrospectiva de otros capítulos
                 if (ESTADO.leaks_desbloqueados.length > 0 && !ESTADO.leaks_desbloqueados.includes(leakKey)) {
                     const previos = ESTADO.leaks_desbloqueados.length;
-                    print(`DEVA: <i>*Revisa registros*</i> Ya has desencriptado ${previos} archivo(s) anteriormente. Cornelia estaría orgullosa.</i>`, 'deva', 10);
+                    print(`DEVA: <i>*Revisa registros*</i> Ya has desencriptado ${previos} archivo(s) anteriormente. La Resistencia estaría orgullosa.</i>`, 'deva', 10);
                 }
 
                 if (ESTADO.leaks_desbloqueados.includes(leakKey)) {

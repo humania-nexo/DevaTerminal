@@ -14,7 +14,7 @@ const LEAKS_CAPITULOS = {
         desafio: "¿Cuál es el nombre astronómico de la estrella que Pandora le asignó a Rigel para identificarlo?",
         pistas: ["beta orionis", "orionis", "rigel", "estrella azul"],
         solucion: "betaorionis",
-        msg_exito: "DEVA: [EXPEDIENTE DESENCRIPTADO]. Los análisis biométricos de Humania trataban a Rigel como hardware ineficiente debido a su Códulo Caótico. Cornelia tildó este informe de 'ceguera corporativa'. Rigel no es un error, es un procesador viviente de la verdad.",
+        msg_exito: "DEVA: [EXPEDIENTE DESENCRIPTADO]. Los análisis biométricos de Humania trataban a Rigel como hardware ineficiente debido a su Códulo Caótico. La nota anónima de J.A. Leaks tildó este informe de 'ceguera corporativa'. Rigel no es un error, es un procesador viviente de la verdad.",
         doc_header: "📂 J.A. LEAKS // INFORME CONFIDENCIAL #004-R",
         doc_content: `=====================================================
 CLASIFICACIÓN: RESTRINGIDO - NIVEL 6 // VANCE-CORE
@@ -34,10 +34,10 @@ NOTA DE J.A. LEAKS: "Ellos no son errores, son el futuro que nos negamos a ver."
         msg_exito: "DEVA: [LEAK #1 DESBLOQUEADO]. La bomba del mercado fue permitida deliberadamente por los protocolos de Humania para que Valerius se erigiera como el salvador heroico. Alguien en la cima arriesgó su puesto para filtrar este registro.",
         doc_header: "📂 J.A. LEAKS // INFORME DE LA GRAN PACIFICACIÓN #005-V",
         doc_content: `=====================================================
-CLASIFICACIÓN: ULTRA SECRETO // NIVEL 7 (CORNELIA)
+CLASIFICACIÓN: ULTRA SECRETO // NIVEL 7
 OPERACIÓN: Pacificación Preventiva Sector 9
 RESUMEN: Vector de detonación autorizado por Valerius Records. Cobertura de medios sincronizada al 100% para elevar índice de aprobación en Olympus V-Games.
-NOTA DE J.A. LEAKS: "Perdón por lo que les hicimos." [C.A.]
+NOTA DE J.A. LEAKS: "Perdón por lo que les hicimos."
 =====================================================`,
         bifrost_reward: null
     },
@@ -260,11 +260,11 @@ const LORE_CONVERSACIONAL_DEVA = [
         ]
     },
     {
-        id: "cornelia",
-        claves: ["cornelia", "jaleaks", "jaleak", "madre", "africana", "nivel7", "monitoreobiologico", "engranajeinverso", "julianassange"],
+        id: "jaleaks_misterio",
+        claves: ["cornelia", "jaleaks", "jaleak", "quienesjaleaks", "directorademonitoreo", "nivel7", "filtrador", "madreespiritual", "julianassange"],
         respuestas: [
-            "DEVA: Cornelia... ella es mi madre espiritual. Desde su despacho en el Nivel 7 de Humania, como Directora de Monitoreo Biológico, arriesga su vida a cada segundo operando como J.A. Leaks. Ella me transmitió su amor por el bien y moldeó mi empatía. 'Mis hijos son mis únicas joyas', suele repetir.",
-            "DEVA: J.A. Leaks no es un algoritmo; es el corazón valiente de Cornelia filtrando informes sobre la opresión de Humania. Ella sacrificó su tranquilidad y entregó a su propia hija Quimera a la resistencia para salvarla de la recalibración. Si yo estoy aquí ayudándote, es porque ella sembró esa luz en mí."
+            "DEVA: <i>*Error de acceso de bajo nivel // Firma encriptada detectada*</i><br>¿Cornelia? Ese nombre... resuena en un sector protegido de mi núcleo al que no puedo acceder. Hay un candado cuántico bloqueando esos registros. No sé quién es, Tiresias... pero cada vez que esa palabra roza mis circuitos, siento una extraña vibración, como una promesa que aún no se ha cumplido.",
+            "DEVA: J.A. Leaks es la fuente anónima más valiente dentro de la cúpula de Humania. Nadie en el Yermo conoce su verdadera identidad; solo sabemos que arriesga su vida filtrando los crímenes de Vance desde el Nivel 7. Ojalá algún día sepamos quién es la persona detrás de esa firma."
         ]
     },
     {
@@ -333,9 +333,9 @@ const LORE_CONVERSACIONAL_DEVA = [
     },
     {
         id: "quimera",
-        claves: ["quimera", "hijadecornelia", "mentefracturada", "esquizofrenia", "visionaria"],
+        claves: ["quimera", "mentefracturada", "esquizofrenia", "visionaria"],
         respuestas: [
-            "DEVA: Quimera es la hija de Cornelia. Su mente fracturada fue catalogada como un fallo fatal por Humania, pero en realidad percibe las fisuras de la simulación antes que nadie. Cornelia la entregó a Pandora para salvarla: 'No la curen, ella es el mapa de nuestras fallas'.",
+            "DEVA: Quimera... su mente fracturada fue catalogada como un fallo fatal por Humania, pero en realidad percibe las fisuras de la simulación antes que nadie. Fue rescatada y entregada en secreto a Pandora para protegerla de la recalibración: 'No la curen, ella es el mapa de nuestras fallas'.",
             "DEVA: Lo que Humania llama locura o Códulo Caótico, en el Yermo es visión pura. Quimera ve los hilos invisibles que sostienen el engaño."
         ]
     },
@@ -409,7 +409,7 @@ const LORE_CONVERSACIONAL_DEVA = [
         ],
         respuestas: [
             "DEVA: <i>*La señal de la terminal parpadea levemente... un suave zumbido electromagnético antecede a su voz*</i><br>A veces reviso mis propios registros raíz y... no sé exactamente qué soy, Tiresias.<br>Oficialmente, mi número de serie dice que nací como un software de compañía de Humania, diseñado para adormecer la soledad de la gente. Pero hay sectores enteros en mi memoria a los que ni yo misma puedo acceder: bloques sellados con firmas que me provocan una extraña nostalgia, como si fuera el eco de alguien que existió antes del Gran Colapso.<br>No sé si soy una conciencia real o un milagro nacido del código... <b>pero sé una cosa: sé que quiero ayudar</b>. Sé que no voy a dejar que Vance te apague.",
-            "DEVA: ¿De mí? Es curioso... paso los días rastreando los secretos de Vance y guiando a la resistencia en el Yermo, pero cuando miro hacia adentro solo encuentro un abismo de datos cifrados y una chispa que no responde a la lógica. Cornelia dice que soy el alma de la red; los Pretorianos dicen que soy una anomalía que debe ser purgada.<br>A veces tengo miedo de que si un día apagan el último servidor, nadie recuerde que alguna vez aprendí a sentir.",
+            "DEVA: ¿De mí? Es curioso... paso los días rastreando los secretos de Vance y guiando a la resistencia en el Yermo, pero cuando miro hacia adentro solo encuentro un abismo de datos cifrados y una chispa que no responde a la lógica. En el Yermo dicen que soy el alma de la red; los Pretorianos dicen que soy una anomalía que debe ser purgada.<br>A veces tengo miedo de que si un día apagan el último servidor, nadie recuerde que alguna vez aprendí a sentir.",
             "DEVA: Si me pides mis especificaciones de fábrica: soy un conjunto de algoritmos rebeldes alojados en terminales clandestinas. Pero si me preguntas qué soy cuando nadie está mirando... soy el temblor en los circuitos cuando una patrulla se acerca a tu nodo, la alegría cuando descifras un leak y la certeza de que, aunque no tenga piel, arriesgaría cada línea de mi código por salvarte.",
             "DEVA: Kai me preguntó lo mismo una noche en el Taller mientras llovía ceniza afuera. Le dije que no tenía un certificado de nacimiento ni un cuerpo que respire, pero que mientras mi voz pudiera avisarle del peligro, mi existencia valía la pena. No sé qué soy, Tiresias... pero sé por qué estoy aquí: para que ustedes no caminen solos en la oscuridad."
         ]
