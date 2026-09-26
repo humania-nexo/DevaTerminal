@@ -23,13 +23,13 @@ const ART_LIBELULA = `
    .-~\`        .'  |=|  \`.        \`~-.
  (\`     _,.-="\`    |=|    \`"=-.,_     \`)
   \`~"~"\`           |=|           \`"~"~\`
-                  |=|
-                  |=|
-                  |=|
-                  /=\\
-                  \\=/
-                   ^
-         [ ALIANZA LIBÉLULA ]
+                   |=|
+                   |=|
+                   |=|
+                   /=\\
+                   \\=/
+                    ^
+          [ ALIANZA LIBÉLULA ]
 `;
 
 // --- 2. GESTIÓN DE MEMORIA PERSISTENTE COMPARTIDA (localStorage) ---
