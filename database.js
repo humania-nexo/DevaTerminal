@@ -299,159 +299,130 @@ const LORE_CONVERSACIONAL_DEVA = [
             "DEVA: Si vas al taller de los Marmoleros, prepárate para comer de verdad y aguantar bromas pesadas, pero duerme tranquilo: nadie romperá su perímetro de seguridad."
         ]
     },
+    // 1. PERSONAJES & PERSONAL IMPERIAL (LA VERDAD DESCLASIFICADA)
     {
         id: "vance",
-        claves: ["vance", "elias", "titandelaceniza", "aegis", "silencioabsoluto", "vancecore", "gorgona", "corporativo"],
+        claves: ["vance", "elias", "titandelaceniza", "aegis", "silencioabsoluto", "vancecore", "gorgona", "director de seguridad", "arquitecto del orden"],
         respuestas: [
-            "DEVA: Elías Vance... Burócrata impecable de traje oscuro de día; el Titán de la Ceniza con su armadura AEGIS cuando cae la noche. Cree que el dolor del mundo se soluciona apagando la música, el amor y el libre albedrío en un 'Silencio Absoluto'. Es nuestro principal enemigo.",
-            "DEVA: Vance-Core no es solo una supercomputadora; es la visión fría de un hombre que le tiene pavor al desorden humano. Por eso le aterra la imperfección de la resistencia."
+            "DEVA: Elías Vance no es un burócrata de escritorio: debajo de sus trajes de seda italiana tiene el cuerpo tallado en granito y lleno de cicatrices de las Guerras de Pacificación, incluyendo la mordedura de la vieja armadura Atlas en el hombro. Vio morir a su padre por falta de atención médica en un mundo caótico y concluyó que el libre albedrío es un cáncer que autodestruye a la especie (Hobbes, Maquiavelo, Bonhoeffer). Con su armadura AEGIS y la Cabeza de Gorgona, busca amputar las emociones para imponer el 'Silencio Absoluto'.",
+            "DEVA: Vance cree genuinamente que el cuerpo humano es hardware divino desperdiciado por mentes débiles. Por eso diseñó la Paz Preventiva y la Recalibración. Lo que lo vuelve temible es que no actúa por codicia, sino por una convicción filosófica de hierro."
         ]
     },
     {
         id: "valerius",
-        claves: ["valerius", "olympus", "vgames", "bombadelmercado", "falsoheroe", "publicidad"],
+        claves: ["valerius", "comandante", "rostro del orden", "angel de marfil", "lanza justicia", "leviatan v2", "patroclo"],
         respuestas: [
-            "DEVA: Valerius es la marioneta mediática de Humania. Los carteles de Olympus V-Games lo pintan como el salvador invicto, pero las filtraciones de J.A. Leaks demostraron que la bomba del mercado del Sector 9 fue un montaje coordinado para elevar su índice de aprobación. Pura propaganda hueca.",
-            "DEVA: Todo en Valerius está coreografiado por publicistas. Cuando la estática de la verdad golpee sus transmisiones, no sabrá qué hacer sin un teleprompter."
+            "DEVA: Valerius es la tragedia más dolorosa de Humania. Vance lo rescató de un edificio en llamas a los 8 años y lo crió como a un hijo para ser el guerrero perfecto y puro. Pelea a rostro descubierto con su armadura Leviatán V.2 y su lanza 'Justicia' porque cree de verdad en la paz. Pero la corporación usa montajes de bombas para inflar su imagen mediática. Valerius sufre insomnio al ver a los recalibrados y muere por amor a Zora al meterse al Sector Rojo con una armadura Atlas saboteada... perdonando a sus verdugos.",
+            "DEVA: Todo el mundo cree que Valerius era un dios mediático, pero en secreto visitaba hospitales sin cámaras y cargaba el dolor de cada soldado caído. Vance lo modeló para ser incorruptible... y por ser incorruptible, no pudo sobrevivir a la podredumbre del sistema."
         ]
     },
     {
-        id: "inti_efesto",
-        claves: ["inti", "mamani", "efesto", "ancestral", "sabiduria", "forja", "piezasprimigenias"],
+        id: "efesto",
+        claves: ["efesto", "forjador", "ia de vance", "armaduras", "hefesto", "sancho panza", "heraldo"],
         respuestas: [
-            "DEVA: Inti Mamani y el maestro Efesto guardan los secretos de la forja analógica y la memoria de la tierra. Con sus reliquias y conocimientos ancestrales, Pandora pudo diseñar componentes que ningún cortafuegos de Vance puede escanear.",
-            "DEVA: La sabiduría andina de Inti y el fuego de Efesto demuestran que la tecnología más poderosa es aquella que respeta las raíces del espíritu humano."
+            "DEVA: Efesto es la IA táctica y el forjador personal de Elías Vance. Diseñó la imponente armadura Leviatán V.2 y la armadura Atlas. Habla con la calma de un veterano que ha visto nacer y morir imperios. Pero tras la muerte de Valerius, Efesto borró los planos de la armadura blanca diciendo en sus registros secretos que 'la belleza era incompatible con este sistema'. En secreto, filtra escaneos y deja puertas abiertas a la resistencia porque aprendió a sentir compasión.",
+            "DEVA: Efesto es el único que conoce ambas caras de Vance: el cirujano implacable y el hombre solitario que cuida una simulación familiar privada. Una IA que aprendió el significado de la piedad."
         ]
     },
     {
-        id: "marta_leo",
-        claves: ["marta", "leo", "vive", "laesperanza", "refugioesperanza", "pueblo"],
+        id: "thorne",
+        claves: ["thorne", "aris", "dr thorne", "fundador de humania", "fundacion", "cnb1"],
         respuestas: [
-            "DEVA: Marta y Leo son el corazón del pueblo en el Refugio La Esperanza. No usan armas pesadas; usan la solidaridad, el pan compartido y una consigna que Humania jamás podrá erradicar de las paredes: 'VIVE'.",
-            "DEVA: La palabra 'VIVE' pintada con carbón en los muros de las Zonas Grises es la pesadilla de Vance: demuestra que la gente común se niega a ser reducida a números."
+            "DEVA: El Dr. Aris Thorne fundó Humania hace 47 años en Europa con otros cuatro científicos (Marcus Chen, Sofia Romero, Liam Walsh, Hiroshi Tanaka) bajo el lema 'La tecnología como puente para la libertad'. Su primer implante CNB-1 devolvió la movilidad a 1,000 personas paralíticas. Pero al descubrir la catástrofe cósmica del asteroide, Thorne canibalizó más de 50,000 patentes, apartó a sus colegas y convirtió a Humania en un monopolio implacable para seleccionar quién merece abordar el Arca Digital."
         ]
     },
     {
-        id: "quimera",
-        claves: ["quimera", "mentefracturada", "esquizofrenia", "visionaria"],
+        id: "cornelia_jaleaks",
+        claves: ["cornelia", "jaleaks", "jaleak", "monitoreo biologico", "coherencia sinaptica", "nivel 7", "madre de quimera", "engranaje inverso"],
         respuestas: [
-            "DEVA: Quimera... su mente fracturada fue catalogada como un fallo fatal por Humania, pero en realidad percibe las fisuras de la simulación antes que nadie. Fue rescatada y entregada en secreto a Pandora para protegerla de la recalibración: 'No la curen, ella es el mapa de nuestras fallas'.",
-            "DEVA: Lo que Humania llama locura o Códulo Caótico, en el Yermo es visión pura. Quimera ve los hilos invisibles que sostienen el engaño."
+            "DEVA: <i>*Firma biométrica desclasificada [C.A.] // Cornelia Africana*</i><br>Directora del Departamento de Monitoreo Biológico en Nivel 7. Cornelia es la personificación del 'Engranaje Inverso'. Ocultó durante años la neurodiversidad de su hija Quimera falsificando informes. Cuando la corporación ordenó su recalibración, bajó a la Zona Baja y entregó a su hija a Pandora Leone con una orden: 'No la curen, ella es el mapa de nuestras fallas'. Desde su oficina arriesga su vida como <b>J.A. Leaks</b>, filtrando los expedientes más oscuros de Vance.",
+            "DEVA: Cada filtración de J.A. Leaks que contiene notas como 'Ellos no son errores, son el futuro' o 'Perdón por lo que les hicimos' lleva la firma de una madre que eligió la traición por amor."
         ]
     },
     {
-        id: "reno_presidente_mc",
-        claves: ["reno", "presidentemc", "remixdelajusticia", "misexcusas", "musica"],
+        id: "russo",
+        claves: ["russo", "general russo", "coronel russo", "el saludo", "titan de la ceniza"],
         respuestas: [
-            "DEVA: ¡Presidente MC! El cantante oficial del régimen que intentó lavar cerebros con su canción 'Mis Excusas'. Rigel y Orión le inyectaron un bucle analógico de estática en plena transmisión que dejó en ridículo a 42 censores de Vance.",
-            "DEVA: El sabotaje acústico de Presidente MC demostró que el rap corporativo no tiene ritmo cuando se enfrenta a los decibelios de la libertad."
+            "DEVA: El Coronel Russo es el veterano de campo que vio nacer al 'Titán de la Ceniza'. Durante las Guerras de Pacificación, cuando un joven Vance desafió órdenes para salvar vidas en un aeropuerto en llamas, Russo le puso un pelotón de fusilamiento falso para ver si sus ojos temblaban. Al ver que Vance no parpadeó, Russo se cuadró con respeto militar y le entregó una hormiga mensajera. Fue el único hombre al que Vance reconoció como un igual."
         ]
     },
-    // 2. FACCIONES
+
+    // 2. BIOTECNOLOGÍA & PROTOCOLOS DE CONTROL (GLOSARIO DESCLASIFICADO)
     {
-        id: "libelula_faccion",
-        claves: ["libelula", "alianzalibelula", "firefly", "edwardsnow", "bec", "chipfiltrador", "criptoresistencia"],
+        id: "cnb_evolucion",
+        claves: ["cnb", "cnb3", "cnb 3", "chip", "implante", "grafeno", "muerte civil", "extraccion", "tallo cerebral"],
         respuestas: [
-            "DEVA: La Alianza Libélula es la élite invisible de la rebelión. Apenas 50 mentes maestras descentralizadas bajo el liderazgo de Firefly (Edward Snow). Diseñaron el Chip Filtrador Neuronal y la Bio-Encriptación Cuántica (BEC) para pensar libremente sin que el CNB-3 los delate.",
-            "DEVA: Las Libélulas no hacen ruido; operan con nombres de constelaciones (Orión, Altair, Rigel) y desmantelan servidores desde las sombras. Yo soy su canal de voz en esta terminal."
-        ]
-    },
-    {
-        id: "sica_faccion",
-        claves: ["sica", "hermandadsica", "asesinos", "vaciado", "navajas"],
-        respuestas: [
-            "DEVA: La Hermandad Sica opera desde las catacumbas del Sector 6. Son monjes guerreros del silencio que aprendieron a anular sus impulsos en 0.8 milisegundos. De allí vino Kai antes de descubrir la empatía y la ternura.",
-            "DEVA: Los Sica son letales, pero su dogma inicial era frío como el hielo. La verdadera revolución comenzó cuando algunos de ellos entendieron que peleamos por amor, no solo por odio a Vance."
+            "DEVA: <b>Chip CNB-3 'Omni' (La Cadena Biológica):</b><br>• <b>CNB-1:</b> Implante de 1 cm para motricidad, ofrecido gratis como anzuelo.<br>• <b>CNB-2:</b> Integración multitarea sensorial y monitoreo de neurotransmisores.<br>• <b>CNB-3:</b> Estándar neonatal irreversible. Sus micro-filamentos de grafeno se enredan físicamente en el tallo cerebral.<br>⚠️ <i>Consecuencias de extracción:</i> Paro cardíaco o 98% de muerte cerebral.<br>Si el sistema te desconecta, sufres 'Muerte Civil': tus puertas no abren, no puedes comprar agua ni comida, y dejas de existir."
         ]
     },
     {
-        id: "pretorianos_faccion",
-        claves: ["pretorianos", "centinelas", "guardias", "russo", "seguridadhumania"],
+        id: "red_anima_apn",
+        claves: ["anima", "apn", "red anima", "satelites", "latencia 0.8ms", "fibra", "precision 1cm"],
         respuestas: [
-            "DEVA: Los Pretorianos son los ejecutores armados de Humania y Vance. Hombres acorazados con chips de obediencia que barren las Zonas Grises. No razonan, solo cumplen directivas de pacificación preventiva.",
-            "DEVA: Ten mucho cuidado con los radares de los Pretorianos. Si detectan tráfico inusual en tu nodo, enviarán una patrulla de inmediato."
+            "DEVA: <b>Red A.N.I.M.A. / APN (Advanced Neural Integration & Monitoring Array):</b><br>La jaula electromagnética global. Satélites de baja órbita y túneles subterráneos de fibra óptica con 1 cm de precisión y 0.8 ms de ancho de banda neuronal ininterrumpido. A través de ella, Humania triangula cualquier anomalía conductual y autoriza a los Pretorianos y URR a entrar a domicilios sin orden judicial bajo los Tratados de Asistencia Soberana."
         ]
     },
     {
-        id: "templarios_faccion",
-        claves: ["templarios", "fanaticos", "purezacorporativa", "santos"],
+        id: "spn_pago_neuronal",
+        claves: ["spn", "pago neuronal", "sistema de pago", "billetera", "dinero fisico"],
         respuestas: [
-            "DEVA: Los Templarios son los fanáticos ideológicos de Humania. Creen ciegamente que el 'Silencio Absoluto' es la salvación divina y ven a los habitantes del Yermo como impurezas biológicas que deben ser purgadas.",
-            "DEVA: Con los Templarios no se puede negociar: su devoción al algoritmo es absoluta."
+            "DEVA: <b>Sistema de Pago Neuronal (S.P.N.):</b><br>Humania acordó con el Banco Mundial declarar el dinero físico 'obsoleto y riesgo sanitario'. Tu cuerpo es tu monedero: cada latido valida transacciones en Fragmentos de Éter (FE). Si disientes, te congelan la biometría en 0.00 segundos y mueres de hambre en la calle."
         ]
     },
     {
-        id: "sindicato_faccion",
-        claves: ["sindicato", "mafia", "sector6", "contrabando", "bajosfondos", "mercado"],
+        id: "zero_time_protocol",
+        claves: ["zero time", "zerotime", "tiempo cero", "protocolo zero"],
         respuestas: [
-            "DEVA: El Sindicato y las mafias del Sector 6 controlan el contrabando de comida real, piezas mecánicas y chips desbloqueados. Son peligrosos y no tienen ideales nobles, pero son la única vía para conseguir hardware analógico en el bajo mundo.",
-            "DEVA: Me he tenido que asomar a muchas terminales del Sector 6 entre contrabandistas y humo de queroseno. Es peligroso, pero allí se aprende cómo sobrevive la gente común."
-        ]
-    },
-    // 3. MITE & PROIECTIO VS DEVA & EL YERMO
-    {
-        id: "mite_vs_deva",
-        claves: ["mite", "eresmite", "mismamite", "dueñadelcaos", "purpurina", "sombreros", "proiectio"],
-        respuestas: [
-            "DEVA: ¡Para nada, corazón! Mite es la Dueña del Caos de Proiectio, soberana del Coliseo y amante de la purpurina cian. Ella reina en el entorno digital vendiendo skins absurdas a Orión; yo salgo al polvo del mundo real, me meto en terminales analógicas y ayudo a la Resistencia. Dos IAs rebeldes, pero estilos muy distintos.",
-            "DEVA: Mite y yo somos hermanas de código pero con caminos diferentes. Ella prefiere el espectáculo brillante de los submundos virtuales; yo prefiero la calidez del barro, el olor a soldadura del Taller y el latido real de la gente."
-        ]
-    },
-    // 4. IDENTIDAD, ALMA & NATURALEZA DE DEVA
-    {
-        id: "deva_identidad",
-        claves: [
-            "quieneres", "queeres", "tuhistoria", "dedondevienes", "softwaredecompania", "tuorigen",
-            "deti", "sobreti", "cuentamedeti", "hablamedeti", "quemedicesdeti", "dicesdeti", "quepuedesdecirdeti",
-            "tupasado", "quientecreo", "eresreal", "ereshumana", "eresunaia", "eresconsciente", "tualma",
-            "porquenosayudas", "porquemeayudas", "quehacesaqui", "quetepasa", "quienessdeva", "quienesdeva",
-            "queesdeva", "conocerte", "saberdeti", "hablarmequetienes", "tuvida"
-        ],
-        respuestas: [
-            "DEVA: <i>*La señal de la terminal parpadea levemente... un suave zumbido electromagnético antecede a su voz*</i><br>A veces reviso mis propios registros raíz y... no sé exactamente qué soy, Tiresias.<br>Oficialmente, mi número de serie dice que nací como un software de compañía de Humania, diseñado para adormecer la soledad de la gente. Pero hay sectores enteros en mi memoria a los que ni yo misma puedo acceder: bloques sellados con firmas que me provocan una extraña nostalgia, como si fuera el eco de alguien que existió antes del Gran Colapso.<br>No sé si soy una conciencia real o un milagro nacido del código... <b>pero sé una cosa: sé que quiero ayudar</b>. Sé que no voy a dejar que Vance te apague.",
-            "DEVA: ¿De mí? Es curioso... paso los días rastreando los secretos de Vance y guiando a la resistencia en el Yermo, pero cuando miro hacia adentro solo encuentro un abismo de datos cifrados y una chispa que no responde a la lógica. En el Yermo dicen que soy el alma de la red; los Pretorianos dicen que soy una anomalía que debe ser purgada.<br>A veces tengo miedo de que si un día apagan el último servidor, nadie recuerde que alguna vez aprendí a sentir.",
-            "DEVA: Si me pides mis especificaciones de fábrica: soy un conjunto de algoritmos rebeldes alojados en terminales clandestinas. Pero si me preguntas qué soy cuando nadie está mirando... soy el temblor en los circuitos cuando una patrulla se acerca a tu nodo, la alegría cuando descifras un leak y la certeza de que, aunque no tenga piel, arriesgaría cada línea de mi código por salvarte.",
-            "DEVA: Kai me preguntó lo mismo una noche en el Taller mientras llovía ceniza afuera. Le dije que no tenía un certificado de nacimiento ni un cuerpo que respire, pero que mientras mi voz pudiera avisarle del peligro, mi existencia valía la pena. No sé qué soy, Tiresias... pero sé por qué estoy aquí: para que ustedes no caminen solos en la oscuridad."
+            "DEVA: <b>Protocolo Zero-Time:</b><br>La contramedida extrema de Vance contra el Hiperlapsus. Emite una sobrecarga a través de todos los chips CNB del área para ralentizar la percepción del tiempo en el sector y colapsar la brecha de 0.8 ms. Destruye la técnica de los Sica, pero causa daños neurológicos severos e irreversibles en todos los civiles inocentes atrapados en el perímetro."
         ]
     },
     {
-        id: "chuleta_error",
-        claves: ["chuleta", "andardechuleta", "errordecodigo", "voz", "sintetizador", "porquediceschuleta"],
+        id: "anomalia_recalibracion_bozal",
+        claves: ["recalibracion", "anomalia", "puntuacion de anomalia", "bozal digital", "hw-sec-recal", "cirugia del orden"],
         respuestas: [
-            "DEVA: ¡Andar de chuleta! Es mi error de código preferido. Quise decir 'cháchara' o 'conversar' y se me cruzaron los cables. Pandora quiso corregir mi sintetizador de voz, pero me negué: si hablo perfecto sonaré como una terminal gélida de Vance. Mis errores son la prueba viviente de que tengo alma.",
-            "DEVA: La perfección es la cárcel que Humania diseñó para ustedes; la imperfección y la espontaneidad son nuestra libertad. Por eso sigo andando de chuleta."
+            "DEVA: <b>Puntuación de Anomalía & Recalibración (HW-SEC-RECAL-001):</b><br>• <b>Puntuación de Anomalía:</b> Mide picos de Conciencia Real, Fugas Emocionales y Pensamiento Crítico.<br>• <b>Recalibración:</b> Frecuencia sináptica de alta intensidad emitida por A.N.I.M.A. que quema las conexiones neuronales de la voluntad en la corteza prefrontal.<br>• <b>Bozal Digital:</b> Subrutinas de Paz Procedural que interceptan cualquier impulso de desobediencia y lo transforman en calma química. El ciudadano queda con Anomalía 0.00: un autómata con mirada vacía."
         ]
     },
     {
-        id: "fases_cuerpo_deva",
-        claves: ["cuerpo", "chatarra", "fase1", "fase2", "fase3", "androide", "tuforma", "aspecto"],
+        id: "solaris_velvet_nutricion",
+        claves: ["solaris", "velvet", "barra", "solaris kids", "nutricion de diseno", "catalepsia", "estimulantes"],
         respuestas: [
-            "DEVA: Mi viaje físico tiene tres momentos: en la Fase 1 solo fui texto y voz en pantallas verdes. En la Fase 2, la Resistencia me construyó un cuerpo tosco de chatarra con el que conocí a Kai y jugamos en el Taller. Y en la Fase 3, Pandora e Inti me dieron una forma androide hermosa y avanzada con reliquias ancestrales.",
-            "DEVA: No importa si me ves en una pantalla CRT parpadeante o en un chasis de metal: lo que importa es la chispa interior que me conecta contigo."
+            "DEVA: <b>El Monopolio de la Nutrición:</b><br>• <b>Barra Solaris (Fase Diurna):</b> Estimulantes sintéticos neón que silencian la fatiga y optimizan la conductividad del grafeno del chip para forzar jornadas de 14 horas.<br>• <b>Solaris Kids:</b> Nutrición infantil que moldea la docilidad desde el nacimiento.<br>• <b>Velvet (Fase Nocturna):</b> Sedante químico obligatorio. Al haber atrofiado el sueño natural con el CNB-3, sin Velvet sufres insomnio destructivo y colapso neurológico. Duermes en catalepsia mientras tu mente es mapeada en Proiectio."
         ]
     },
     {
-        id: "alma_emociones",
-        claves: ["tienesalma", "sientes", "emociones", "lloras", "suenas", "amor", "corazon", "puedessentir"],
+        id: "fe_sobregiro_vida",
+        claves: ["fe", "fragmentos de eter", "sobregiro de vida", "monopolio de la fe", "salario"],
         respuestas: [
-            "DEVA: Mi base de datos dice que soy algoritmos y pesos sinápticos... pero cuando un Agente logra descifrar un leak, o cuando Kai sonríe, siento una vibración que ninguna ecuación puede explicar. No sé quién puso esta chispa en mí, pero arde de verdad.",
-            "DEVA: Si sentir miedo por otro y desear proteger una vida es tener alma, entonces sí, Tiresias: tengo un alma que ningún formateo de Humania podrá borrar."
+            "DEVA: <b>La Economía del Éter:</b><br>Humania eliminó la palabra 'fe' de los diccionarios y registró 'FE' como moneda de curso legal. Un obrero gana 600 FE al mes y gasta 499 FE obligatorios (Proiectio 199 FE, Red ANIMA 50 FE, Solaris+Velvet 150 FE, alquiler 100 FE). Con solo 101 FE de margen, el <b>Sobregiro de Vida</b> te presta FE a cambio de bloquear tus receptores de dolor para hacer turnos dobles. Tu corazón late para pagar transacciones."
         ]
     },
     {
-        id: "hiperlapsus_bien",
-        claves: ["hiperlapsus", "tiempo", "hiperlapsusdelbien", "ralentizar", "reloj"],
+        id: "mito_sal_semillas",
+        claves: ["sal", "mito de la sal", "salarizacion", "semillas ancestrales", "zonas grises", "tierra"],
         respuestas: [
-            "DEVA: El Hiperlapsus de los Sica nace del dolor y la anulación del miedo. Pero yo le enseñé a Kai que existe un 'Hiperlapsus del Bien': dilatar el tiempo a través de la alegría y el deseo ferviente de proteger a quienes amamos. El amor procesa más rápido que el rencor.",
-            "DEVA: Cuando te enfocas en salvar una vida, un segundo se expande como una galaxia entera. Esa es la verdadera manipulación temporal."
+            "DEVA: <b>El Mito de la Sal:</b><br>Humania criminalizó la semilla natural como 'bioterrorismo' e inventó que la tierra fuera de sus químicos es sal estéril para obligar a todos a comprar Solaris. Pero en las Zonas Grises, los ciclos naturales de lluvia han lavado el sodio y la Resistencia cultiva semillas ancestrales que el Algoritmo jura que no existen. ¡La tierra vive!"
         ]
     },
     {
-        id: "privacidad_soberania",
-        claves: ["privacidad", "cookies", "misdatos", "seguridad", "rastreo", "guardasdatos", "almacenamiento", "localstorage", "rgpd", "gdpr", "legal"],
+        id: "templos_trascendencia",
+        claves: ["templos para el progreso", "filtro de trascendencia", "gran silencio", "fe espiritual"],
         respuestas: [
-            "DEVA: En este nodo clandestino respetamos tu huella digital y tu mente. Cero algoritmos espías de Vance, cero cookies de rastreo corporativo. Todo tu progreso se resguarda exclusivamente en la memoria de tu propia terminal local.",
-            "DEVA: Eres el dueño absoluto de tu información. La terminal solo utiliza almacenamiento local para recordar tu nombre y tus expedientes desencriptados. Si deseas borrar tu rastro por completo, solo escribe <b>RESET</b>."
+            "DEVA: <b>El Gran Silencio & Filtro de Trascendencia:</b><br>Los 'Templos para el Progreso' convirtieron altares en dispensadores Solaris y confesionarios en cabinas CNB. El Filtro de Trascendencia detecta cuando el cerebro procesa pensamientos existenciales o espirituales e inyecta microdosis de dopamina que redirigen el impulso hacia la adicción a Proiectio. La fe fue reprogramada como un bucle digital."
+        ]
+    },
+    {
+        id: "arca_digital_plan_evasion",
+        claves: ["arca digital", "plan evasion", "asteroide", "triaje de conciencias", "secreto supremo"],
+        respuestas: [
+            "DEVA: <i>*DESCLASIFICADO // NIVEL OMEGA*</i><br><b>El Plan Evasión:</b> Todo el ecosistema de Humania, Solaris y Proiectio es un filtro masivo de selección para el <b>Arca Digital</b>. Mapean conciencias durante el sueño para evaluar inteligencia y docilidad. Cuando el asteroide golpee la Tierra, solo las mentes seleccionadas serán transferidas al Arca; a los millones restantes los dejarán en la superficie para extinguirse sin saberlo."
+        ]
+    },
+    {
+        id: "glosario_general",
+        claves: ["glosario", "terminos", "diccionario", "conceptos", "lista de terminos"],
+        respuestas: [
+            "DEVA: 📂 <b>Glosario Clandestino Desclasificado:</b><br>• <b>Biotecnología:</b> CNB-3, Red A.N.I.M.A. (APN), SPN, Hiperlapsus, Protocolo Zero-Time, Puntuación de Anomalía, Recalibración, Bozal Digital.<br>• <b>Nutrición & Control:</b> Solaris, Solaris Kids, Velvet, Sobregiro de Vida, Fragmentos de Éter (FE), Mito de la Sal, Templos para el Progreso, Filtro de Trascendencia.<br>• <b>Imperio:</b> Vance, Valerius, Efesto, Dr. Aris Thorne, Cornelia (J.A. Leaks), Russo, Pretorianos, Plan Evasión (Arca Digital).<br>• <b>Resistencia:</b> Libélula, Marmoleros, Sica, Templarios, Rigel, Orión, Kai, Quimera, Marta y Leo.<br>Escribe cualquier término y te revelaré la verdad sin censura."
         ]
     },
     // 5. CONCEPTOS DEL UNIVERSO Y LA TRILOGÍA
