@@ -479,9 +479,19 @@ input.addEventListener('keypress', (e) => {
             print("- <b>BIFROST / PORTALES / LINKS</b>: Despliega todos los accesos dimensionales desbloqueados.", 'system', 0);
             print("- <b>LEAKS / ARCHIVOS</b>: Muestra los expedientes confidenciales desencriptados.", 'system', 0);
             print("- <b>STATUS / INVENTARIO / PROGRESO</b>: Muestra tu avance y fragmentos de palabras gemelas.", 'system', 0);
+            print("- <b>PRIVACIDAD / COOKIES / SEGURIDAD</b>: Información sobre soberanía de datos y almacenamiento local.", 'system', 0);
             print("- <b>AR / PROYECTAR</b>: Abre el módulo de Realidad Aumentada.", 'system', 0);
             print("- <b>CLEAR</b>: Limpia el historial de la pantalla.", 'system', 0);
             print("- <b>[CONVERSACIÓN LIBRE O CLAVE]</b>: Pregúntale lo que sea a DEVA o introduce contraseñas del libro.", 'system', 0);
+            return;
+        } 
+        else if (key === 'privacidad' || key === 'seguridad' || key === 'cookies' || key === 'legal' || key === 'datos') {
+            print("--- [PROTOCOLO DE PRIVACIDAD & SOBERANÍA DE DATOS] ---", 'system', 0);
+            print("DEVA: En este nodo de la resistencia respetamos tu huella digital y tu autonomía.", 'deva', 8);
+            print("• <b>Cero Rastreadores / Cero Cookies de Terceros:</b> No utilizamos píxeles publicitarios, herramientas de rastreo invasivo ni compartimos telemetría con corporaciones.", 'system', 0);
+            print("• <b>Almacenamiento 100% Local:</b> Tu nombre de agente, expedientes desencriptados y progreso se resguardan exclusivamente en la memoria de tu propio dispositivo (localStorage). Tus datos nunca salen de tu máquina.", 'system', 0);
+            print("• <b>Control Total:</b> Eres dueño de tu información. Puedes purgar tus registros locales en cualquier momento ejecutando <b>RESET</b>.", 'system', 0);
+            print("--------------------------------------------------", 'system', 0);
             return;
         } 
         else if (key === 'bifrost' || key === 'portales' || key === 'links') {

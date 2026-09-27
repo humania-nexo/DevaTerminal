@@ -446,6 +446,14 @@ const LORE_CONVERSACIONAL_DEVA = [
             "DEVA: Cuando te enfocas en salvar una vida, un segundo se expande como una galaxia entera. Esa es la verdadera manipulación temporal."
         ]
     },
+    {
+        id: "privacidad_soberania",
+        claves: ["privacidad", "cookies", "misdatos", "seguridad", "rastreo", "guardasdatos", "almacenamiento", "localstorage", "rgpd", "gdpr", "legal"],
+        respuestas: [
+            "DEVA: En este nodo clandestino respetamos tu huella digital y tu mente. Cero algoritmos espías de Vance, cero cookies de rastreo corporativo. Todo tu progreso se resguarda exclusivamente en la memoria de tu propia terminal local.",
+            "DEVA: Eres el dueño absoluto de tu información. La terminal solo utiliza almacenamiento local para recordar tu nombre y tus expedientes desencriptados. Si deseas borrar tu rastro por completo, solo escribe <b>RESET</b>."
+        ]
+    },
     // 5. CONCEPTOS DEL UNIVERSO Y LA TRILOGÍA
     {
         id: "cloto_laquesis_atropos",
