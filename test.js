@@ -121,7 +121,7 @@ function print(text, type = 'default', delay = 8) {
 async function playBootAnim() {
     const lines = [
         "ENLAZANDO PROTOCOLO J.A. LEAKS...",
-        "SALTANDO CORTAFUEGOS DE VANCE-CORE...",
+        "SALTANDO CORTAFUEGOS DEL NÚCLEO VANCE...",
         "HOLA, MUNDO. ANDANDO DE CHULETA."
     ];
 
@@ -365,10 +365,19 @@ function procesarEntradaNLU(rawText) {
 
     // 4.4 Evaluación Dinámica contra el Banco de Lore Maestro
     if (typeof LORE_CONVERSACIONAL_DEVA !== 'undefined' && Array.isArray(LORE_CONVERSACIONAL_DEVA)) {
+        const conEspacios = (s) => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\./g, "").replace(/[^a-z0-9ñ\s]/g, " ").replace(/\s+/g, " ").trim();
+        const palabras = ' ' + conEspacios(rawText) + ' ';
         for (const item of LORE_CONVERSACIONAL_DEVA) {
+            // Búsqueda por palabra completa: una clave corta ("fe", "tea", "vela", "sica") solo coincide como palabra entera;
+            // una clave larga coincide al inicio de palabra o, si está escrita sin espacios, dentro del texto compacto.
+            // Antes se buscaba como fragmento y "novela" activaba "vela", "música" activaba "sica".
             const match = item.claves.some(clave => {
-                const normClave = normalizar(clave);
-                return txt.includes(normClave) || rawLower.includes(clave.toLowerCase());
+                const k = conEspacios(clave);
+                if (!k) return false;
+                if (!k.includes(' ') && k.length <= 4) return palabras.includes(' ' + k + ' ');
+                if (palabras.includes(' ' + k)) return true;
+                const compacta = normalizar(clave);
+                return compacta.length >= 8 && txt.includes(compacta);
             });
 
             if (match) {
@@ -420,7 +429,7 @@ function renderizarBifrost() {
 function renderizarLeaks() {
     print("--- [J.A. LEAKS // EXPEDIENTES DESENCRIPTADOS] ---", 'success', 0);
     if (ESTADO.leaks_desbloqueados.length === 0) {
-        print("Aún no has desencriptado ningún paquete de datos de los capítulos. Entra desde los enlaces del libro o ingresa contraseñas.", 'system', 0);
+        print("Los expedientes de J.A. Leaks todavía están en tránsito. Vuelve pronto, Tiresias.", 'system', 0);
     } else {
         ESTADO.leaks_desbloqueados.forEach(id => {
             const lk = LEAKS_CAPITULOS[id];

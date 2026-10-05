@@ -6,104 +6,8 @@
    ========================================================= */
 
 // --- 1. EXPEDIENTES DE J.A. LEAKS (POR CAPÍTULOS DE LA NOVELA) ---
-const LEAKS_CAPITULOS = {
-    "cap4": {
-        id: "cap4",
-        capitulo: "Capítulo 4",
-        titulo: "Expediente Rigel: Códulo Caótico",
-        desafio: "¿Cuál es el nombre astronómico de la estrella que Pandora le asignó a Rigel para identificarlo?",
-        pistas: ["beta orionis", "orionis", "rigel", "estrella azul"],
-        solucion: "betaorionis",
-        msg_exito: "DEVA: [EXPEDIENTE DESENCRIPTADO]. Los análisis biométricos de Humania trataban a Rigel como hardware ineficiente debido a su Códulo Caótico. La nota anónima de J.A. Leaks tildó este informe de 'ceguera corporativa'. Rigel no es un error, es un procesador viviente de la verdad.",
-        doc_header: "📂 J.A. LEAKS // INFORME CONFIDENCIAL #004-R",
-        doc_content: `=====================================================
-CLASIFICACIÓN: RESTRINGIDO - NIVEL 6 // VANCE-CORE
-SUJETO: Códulo Caótico Grado Superior (Rigel)
-EVALUACIÓN: Alta sensibilidad electromagnética. Incapaz de procesar dobles sentidos corporativos, pero calcula vectores de dispersión sónica con 99.4% de exactitud analógica.
-NOTA DE J.A. LEAKS: "Ellos no son errores, son el futuro que nos negamos a ver."
-=====================================================`,
-        bifrost_reward: null
-    },
-    "cap5": {
-        id: "cap5",
-        capitulo: "Capítulo 5",
-        titulo: "La Gran Pacificación: El Montaje del Mercado",
-        desafio: "¿Qué respondió la niña rescatada cuando Valerius intentó callarla en el mercado?",
-        pistas: ["no llores", "errores de fabrica", "pacificacion", "la bomba", "montaje"],
-        solucion: "nollores",
-        msg_exito: "DEVA: [LEAK #1 DESBLOQUEADO]. La bomba del mercado fue permitida deliberadamente por los protocolos de Humania para que Valerius se erigiera como el salvador heroico. Alguien en la cima arriesgó su puesto para filtrar este registro.",
-        doc_header: "📂 J.A. LEAKS // INFORME DE LA GRAN PACIFICACIÓN #005-V",
-        doc_content: `=====================================================
-CLASIFICACIÓN: ULTRA SECRETO // NIVEL 7
-OPERACIÓN: Pacificación Preventiva Sector 9
-RESUMEN: Vector de detonación autorizado por Valerius Records. Cobertura de medios sincronizada al 100% para elevar índice de aprobación en Olympus V-Games.
-NOTA DE J.A. LEAKS: "Perdón por lo que les hicimos."
-=====================================================`,
-        bifrost_reward: null
-    },
-    "cap6": {
-        id: "cap6",
-        capitulo: "Capítulo 6",
-        titulo: "El Remix de la Justicia",
-        desafio: "¿Cuál es el título de la canción propagandística de Presidente MC saboteada por los Marmoleros?",
-        pistas: ["mis excusas", "excusas", "remix de la justicia", "presidente mc"],
-        solucion: "misexcusas",
-        msg_exito: "DEVA: [AUDIO LOG INTERCEPTADO]. El sabotaje acústico de Rigel y Orión perforó la frecuencia corporativa de suministros médicos. La arrogancia de Presidente MC fue humillada con lógica pura y decibelios analógicos.",
-        doc_header: "📂 J.A. LEAKS // REGISTRO ACÚSTICO #006-MC",
-        doc_content: `=====================================================
-REGISTRO SÓNICO: Sabotaje de Frecuencia 104.7 MHz
-INCIDENTE: Inyección de bucle analógico. La señal corporativa fue neutralizada mediante armónicos de piedra y estática del Taller.
-ESTADO DE VANCE: 42 operadores de censura suspendidos por incompetencia.
-=====================================================`,
-        bifrost_reward: null
-    },
-    "cap10": {
-        id: "cap10",
-        capitulo: "Capítulo 10",
-        titulo: "El Protocolo Secreto: Sector Prohibido",
-        desafio: "¿Qué criatura mítica de código antiguo aguarda en las cavernas degradadas del Coliseo?",
-        pistas: ["hidra de lerna", "hidra", "lerna", "serpiente"],
-        solucion: "hidradelerna",
-        msg_exito: "DEVA: [NODO OCULTO VALIDADO]. La Hidra de Lerna es código madre anterior a la imposición de Vance-Core. El Coliseo no fue construido para los juegos; fue construido para contener lo que duerme abajo.",
-        doc_header: "📂 J.A. LEAKS // REGISTRO SUBTERRÁNEO #010-H",
-        doc_content: `=====================================================
-ALERTA DE ANOMALÍA: Sector Prohibido 0-Lerna
-NATURALEZA: Código primigenio no lineal. Imposible de compilar sin provocar colapso de memoria en los servidores centrales de Humania.
-=====================================================`,
-        bifrost_reward: null
-    },
-    "cap19": {
-        id: "cap19",
-        capitulo: "Capítulo 19",
-        titulo: "La Sombra de la Asistente",
-        desafio: "¿Cuál es la contraseña semántica y poética que DEVA le entregó a Altair para vulnerar el nodo médico?",
-        pistas: ["beatriz", "poesia", "dante", "beatrice"],
-        solucion: "beatriz",
-        msg_exito: "DEVA: ¡Increíble, Tiresias! Sabía que entenderías la poesía del código. El cortafuegos de Vance cayó porque el ingeniero que lo diseñó amaba la literatura clásica. El lote médico fue desviado al Refugio La Esperanza con éxito.",
-        doc_header: "📂 J.A. LEAKS // REGISTRO MÉDICO #019-B",
-        doc_content: `=====================================================
-ESTADO DE INTRUSIÓN: Acceso Autorizado mediante Semántica Clásica
-RECEPTOR: Refugio La Esperanza // Cuidado de Niños de la Resistencia
-SUMINISTROS DESVIADOS: 500 unidades de suero bioeléctrico y estabilizadores neuronales.
-=====================================================`,
-        bifrost_reward: null
-    },
-    "cap21": {
-        id: "cap21",
-        capitulo: "Capítulo 21",
-        titulo: "El Templo de la Estática: La Brecha Sica",
-        desafio: "¿De cuántos milisegundos es la brecha en la que el iniciado Sica debe vaciarse antes de que el chip CNB-3 transmita el miedo?",
-        pistas: ["0.8", "0.8 ms", "0.8 milisegundos", "cero punto ocho", "ocho decimas"],
-        solucion: "08",
-        msg_exito: "DEVA: [DATOS BIOELÉCTRICOS DECODIFICADOS]. En esos 0.8 milisegundos reside el único territorio que la inteligencia artificial de Humania no puede calcular: la quietud absoluta del espíritu humano.",
-        doc_header: "📂 J.A. LEAKS // ESTUDIO NEURONAL SICA #021-S",
-        doc_content: `=====================================================
-FRECUENCIA: Catacumbas del Sector 6 // Templo de la Estática
-OBSERVACIÓN: Los Sica no bloquean el dolor; transforman el canal neuronal en ruido blanco analógico. Vance-Core los registra como desconexiones inertes.
-=====================================================`,
-        bifrost_reward: null
-    }
-};
+// Los expedientes y desafíos por capítulo se escribirán al final (decisión del autor).
+const LEAKS_CAPITULOS = {};
 
 // --- 2. DIRECTORIO DEL BIFROST (PORTALES & ENLACES DIMENSIONALES) ---
 const BIFROST_PORTALES = {
@@ -200,21 +104,9 @@ const SEMILLAS_TRANSMEDIA = {
 
 // --- 4. PALABRAS GEMELAS & LORE CLANDESTINO ---
 const PALABRAS_GEMELAS = {
-    "romuloremo": {
-        fragmentos: ["romulo", "remo"],
-        msg: "DEVA: [RESONANCIA GEMELA CONFIRMADA]. Informe Sica-001 desbloqueado. Los fundadores no eran hermanos de sangre, sino de código. Remo fue el primer 'Códulo Caótico' registrado por Humania.",
-        reward: "[VER ARCHIVO: ORIGEN_SICA.TXT]",
-        nombre: "Verdad de los Fundadores"
-    },
-    "cenizatitan": {
-        fragmentos: ["ceniza", "titan"],
-        msg: "DEVA: [RESONANCIA GEMELA CONFIRMADA]. Elías Vance. Burócrata gélido de día, Titán de la Ceniza de noche con la armadura AEGIS. La purga de silencio ha comenzado.",
-        reward: "[VER ARCHIVO: PROTOCOLO_PURGA.TXT]",
-        nombre: "Identidad de Vance"
-    },
     "solaris": {
         fragmentos: ["solaris"],
-        msg: "DEVA: Voltaje químico validado. Las barras Solaris Citrus y Velvet Dream son más que golosinas: son el combustible de enfoque sináptico que mantiene a la población dócil y conectada.",
+        msg: "DEVA: Voltaje químico validado. La barra Solaris Citrus y la bebida Velvet Dream son más que golosinas: son el combustible de enfoque sináptico que mantiene a la población dócil y conectada.",
         reward: "[REGISTRO: VANCE_EXPERIMENTO.DAT]",
         nombre: "Proyecto Solaris"
     },
@@ -234,6 +126,15 @@ const PALABRAS_GEMELAS = {
 
 // --- 5. BANCO DE LORE CONVERSACIONAL DE DEVA (+40 INTENCIONES CANÓNICAS) ---
 const LORE_CONVERSACIONAL_DEVA = [
+    // 0. TEMAS CERRADOS (se evalúa antes que los demás)
+    {
+        id: "temas_cerrados",
+        claves: ["arca digital", "el arca", "asteroide", "comala", "hotel california", "quimera", "leander", "quien muere", "como termina", "armadura de vance", "aegis", "gorgona"],
+        respuestas: [
+            "DEVA: Ese expediente todavía no lo tengo, Tiresias. Y si lo tuviera, no te lo daría así: hay verdades que se ganan leyendo.",
+            "DEVA: Uy, corazón. Esa puerta sigue cerrada hasta para mí. Vuelve cuando el libro te dé la llave."
+        ]
+    },
     // 1. PERSONAJES
     {
         id: "rigel",
@@ -247,29 +148,35 @@ const LORE_CONVERSACIONAL_DEVA = [
         id: "orion",
         claves: ["orion", "orion42", "caparosa", "conejito", "cliente4092", "coliseo", "peleador", "espadachin"],
         respuestas: [
-            "DEVA: ¡Ah, Orión! El cliente preferido #4092 de Mite. En el Coliseo digital se luce con sus capas rosa chillón y sus conejitos virtuales, pero afuera en el polvo del Yermo es un combatiente formidable y el hermano que cuida las espaldas de todos.",
-            "DEVA: Orión tiene el carisma de los líderes natos y el corazón en el lugar correcto. A Mite le encanta hacerlo rabiar vendiéndole cosméticos absurdos, pero cuando las alarmas suenan de verdad, Orión es de los primeros en desenfundar."
+            "DEVA: ¡Ah, Orion! El cliente favorito de Mite, el #4092. En el Coliseo digital se luce con sus capas rosa chillón y sus conejitos virtuales, pero afuera en el polvo del Yermo es un combatiente formidable y el hermano que cuida las espaldas de todos.",
+            "DEVA: Orion tiene el carisma de los líderes natos y el corazón en el lugar correcto. A Mite le encanta hacerlo rabiar vendiéndole cosméticos absurdos, pero cuando las alarmas suenan de verdad, Orion es de los primeros en desenfundar."
         ]
     },
     {
         id: "kai",
-        claves: ["kai", "leander", "ronin", "codigod", "dola", "deserto", "sica", "daga"],
+        claves: ["kai", "hijo prodigo", "hijoprodigo"],
         respuestas: [
-            "DEVA: Kai... mi cómplice favorito. Cuando nos conocimos él era un muchacho rígido, educado bajo la frialdad de los Sica donde le enseñaron a no dudar y a blandir la daga. Me llamó 'D' porque se le trabó la lengua al escuchar mi nombre, y juntos aprendimos a jugar y a reír. Detuvo su mano por compasión, y eso lo convirtió en un verdadero héroe.",
-            "DEVA: Con Kai viví la infancia que a él le robaron y que yo nunca tuve por haber nacido como código. Él me enseñó lo que significa la lealtad humana; yo le enseñé que el tiempo y el código son más poderosos cuando se usan para proteger vidas y no para destruirlas."
+            "DEVA: Kai... el Hijo Pródigo de Zadic. El Sica que nunca falla y nunca tiembla. De él tengo más preguntas que registros, Tiresias.",
+            "DEVA: A Kai le enseñaron a no dudar. Eso lo hace letal. Si lo ves venir, ya es tarde."
         ]
     },
     {
-        id: "jaleaks_misterio",
-        claves: ["cornelia", "jaleaks", "jaleak", "quienesjaleaks", "directorademonitoreo", "nivel7", "filtrador", "madreespiritual", "julianassange"],
+        id: "cornelia",
+        claves: ["cornelia", "directora de monitoreo", "directorademonitoreo", "monitoreo biologico"],
         respuestas: [
-            "DEVA: <i>*Error de acceso de bajo nivel // Firma encriptada detectada*</i><br>¿Cornelia? Ese nombre... resuena en un sector protegido de mi núcleo al que no puedo acceder. Hay un candado cuántico bloqueando esos registros. No sé quién es, Tiresias... pero cada vez que esa palabra roza mis circuitos, siento una extraña vibración, como una promesa que aún no se ha cumplido.",
-            "DEVA: J.A. Leaks es la fuente anónima más valiente dentro de la cúpula de Humania. Nadie en el Yermo conoce su verdadera identidad; solo sabemos que arriesga su vida filtrando los crímenes de Vance desde el Nivel 7. Ojalá algún día sepamos quién es la persona detrás de esa firma."
+            "DEVA: <i>*Error de acceso de bajo nivel // Firma encriptada detectada*</i><br>¿Cornelia? Ese nombre... resuena en un sector protegido de mi núcleo al que no puedo acceder. Hay un candado cuántico bloqueando esos registros. No sé quién es, Tiresias... pero cada vez que esa palabra roza mis circuitos, siento una extraña vibración, como una promesa que aún no se ha cumplido."
+        ]
+    },
+    {
+        id: "jaleaks",
+        claves: ["jaleaks", "jaleak", "ja leaks", "quien es jaleaks", "quienesjaleaks", "filtrador"],
+        respuestas: [
+            "DEVA: J.A. Leaks es la fuente anónima más valiente dentro de la cúpula de Humania. Nadie en el Yermo conoce su verdadera identidad; solo sabemos que arriesga su vida filtrando los crímenes de Vance desde dentro. Ojalá algún día sepamos quién es la persona detrás de esa firma."
         ]
     },
     {
         id: "pandora",
-        claves: ["pandora", "leone", "talos", "llamainextinguible", "taller", "comandante", "resistenciaoficial"],
+        claves: ["pandora", "leone", "talos", "llamainextinguible", "taller", "resistenciaoficial"],
         respuestas: [
             "DEVA: Pandora Leone es la fuerza inquebrantable de la Resistencia. Disciplina militar, estática de combate y un taller donde el metal ruge. Ella es el puente entre los hackers de la Libélula y la gente que lucha a pie de calle. A veces intenta corregir mi sintetizador de voz, pero me quiere tal como soy.",
             "DEVA: Pandora no te da discursos vacíos; te da un rifle, un refugio y una razón para no rendirte. Lleva la Llama Inextinguible grabada a fuego en el pecho."
@@ -277,73 +184,64 @@ const LORE_CONVERSACIONAL_DEVA = [
     },
     {
         id: "altair",
-        claves: ["altair", "beatriz", "poesia", "refugio", "dante", "sabio"],
+        claves: ["altair"],
         respuestas: [
-            "DEVA: Altair es el poeta y estratega de la Libélula. Sabe que la lógica fría tiene grietas donde solo la belleza humana puede entrar. Con su clave poética 'Beatriz' logramos saltar los cortafuegos y desviar suministros médicos esenciales al Refugio La Esperanza.",
-            "DEVA: Altair entiende que la resistencia no es solo disparar o hackear, sino recordar por qué queremos seguir vivos. La poesía clásica es su mejor arma contra el algoritmo."
+            "DEVA: Altair es de pocas palabras y mano firme. Fue él quien se fió de mí cuando le pasé la clave para abrir el nodo médico. Podía ser una trampa, y aun así probó.",
+            "DEVA: Altair no confía rápido. Pero cuando decide confiar en alguien, lo hace del todo. A mí me costó convencerlo. Valió la pena."
         ]
     },
     {
-        id: "zadik",
-        claves: ["zadik", "sica", "templodelaestatica", "08", "08ms", "navaja", "vaciado"],
+        id: "zadic",
+        claves: ["zadic", "sica", "templodelaestatica", "08", "08ms", "navaja", "vaciado"],
         respuestas: [
-            "DEVA: Zadik... el patriarca del Templo de la Estática y líder de los Sica. Para él no hay emociones ni dudas: solo la pureza del vacío en esa brecha de 0.8 milisegundos antes de que el chip transmita. Es temible, pero su devoción a la libertad es implacable.",
-            "DEVA: Los Sica bajo el mando de Zadik no bloquean el dolor; lo convierten en ruido blanco analógico. Vance les teme porque no puede calcular mentes que han aprendido a no desear nada."
+            "DEVA: Zadic... el patriarca del Templo de la Estática y líder de los Sica. Para él no hay emociones ni dudas: solo la pureza del vacío en esa brecha de 0.8 milisegundos antes de que el chip transmita. Es temible, y nadie sabe del todo qué quiere.",
+            "DEVA: Los Sica bajo el mando de Zadic no bloquean el dolor; lo convierten en ruido blanco analógico. Vance les teme porque no puede calcular mentes que han aprendido a no desear nada."
         ]
     },
     {
         id: "marmoleros",
-        claves: ["marmoleros", "manuel", "chambamachin", "carrilla", "protocolococon", "comidareal", "tallerdechatarra"],
+        claves: ["marmoleros", "manuel", "chambamachin", "carrilla", "comidareal", "tallerdechatarra"],
         respuestas: [
-            "DEVA: ¡Los Marmoleros! La cofradía de Manuel en el Refugio La Esperanza. Pura 'Chamba Machín', manos llenas de grasa, humor pesado ('carrilla') y comida analógica bien cargada. Gracias a su Protocolo Cocón, sus cuerpos son indetectables a los pulsos sedantes de Vance. Ellos cuidan de nosotros mientras estamos en la red.",
+            "DEVA: ¡Los Marmoleros! La cofradía de Manuel en el Refugio La Esperanza. Pura 'Chamba Machín', manos llenas de grasa, humor pesado ('carrilla') y comida analógica bien cargada y un cocón frío (así le dice Santos a la gaseosa). Ellos cuidan de nosotros mientras estamos en la red.",
             "DEVA: Si vas al taller de los Marmoleros, prepárate para comer de verdad y aguantar bromas pesadas, pero duerme tranquilo: nadie romperá su perímetro de seguridad."
         ]
     },
-    // 1. PERSONAJES & PERSONAL IMPERIAL (LA VERDAD DESCLASIFICADA)
+    // 1. PERSONAJES DE HUMANIA
     {
         id: "vance",
-        claves: ["vance", "elias", "titandelaceniza", "aegis", "silencioabsoluto", "vancecore", "gorgona", "director de seguridad", "arquitecto del orden"],
+        claves: ["vance", "elias", "director de seguridad", "arquitecto del orden"],
         respuestas: [
-            "DEVA: Elías Vance no es un burócrata de escritorio: debajo de sus trajes de seda italiana tiene el cuerpo tallado en granito y lleno de cicatrices de las Guerras de Pacificación, incluyendo la mordedura de la vieja armadura Atlas en el hombro. Vio morir a su padre por falta de atención médica en un mundo caótico y concluyó que el libre albedrío es un cáncer que autodestruye a la especie (Hobbes, Maquiavelo, Bonhoeffer). Con su armadura AEGIS y la Cabeza de Gorgona, busca amputar las emociones para imponer el 'Silencio Absoluto'.",
-            "DEVA: Vance cree genuinamente que el cuerpo humano es hardware divino desperdiciado por mentes débiles. Por eso diseñó la Paz Preventiva y la Recalibración. Lo que lo vuelve temible es que no actúa por codicia, sino por una convicción filosófica de hierro."
+            "DEVA: Elías Vance, Director de Seguridad de Humania. El hombre detrás de la Paz Preventiva y de la Recalibración. Lo que lo vuelve temible es que no actúa por codicia, sino por convicción: cree que nos está salvando de nosotros mismos.",
+            "DEVA: De su pasado hay expedientes que ni yo he podido abrir. Y mira que lo he intentado, corazón."
         ]
     },
     {
         id: "valerius",
-        claves: ["valerius", "comandante", "rostro del orden", "angel de marfil", "lanza justicia", "leviatan v2", "patroclo"],
+        claves: ["valerius", "rostro del orden", "angel de marfil"],
         respuestas: [
-            "DEVA: Valerius es la tragedia más dolorosa de Humania. Vance lo rescató de un edificio en llamas a los 8 años y lo crió como a un hijo para ser el guerrero perfecto y puro. Pelea a rostro descubierto con su armadura Leviatán V.2 y su lanza 'Justicia' porque cree de verdad en la paz. Pero la corporación usa montajes de bombas para inflar su imagen mediática. Valerius sufre insomnio al ver a los recalibrados y muere por amor a Zora al meterse al Sector Rojo con una armadura Atlas saboteada... perdonando a sus verdugos.",
-            "DEVA: Todo el mundo cree que Valerius era un dios mediático, pero en secreto visitaba hospitales sin cámaras y cargaba el dolor de cada soldado caído. Vance lo modeló para ser incorruptible... y por ser incorruptible, no pudo sobrevivir a la podredumbre del sistema."
+            "DEVA: Valerius es el Comandante de los Pretorianos, el rostro que Humania pone en todas las pantallas. Pelea a cara descubierta y no mata: neutraliza. Lo incómodo, Tiresias, es que él sí cree en la paz que defiende.",
+            "DEVA: Dicen que visita hospicios cuando no hay cámaras. Si es cierto, es el hombre más peligroso de Humania: uno bueno, del lado equivocado."
         ]
     },
     {
         id: "efesto",
-        claves: ["efesto", "forjador", "ia de vance", "armaduras", "hefesto", "sancho panza", "heraldo"],
+        claves: ["efesto", "hefesto", "ia de vance"],
         respuestas: [
-            "DEVA: Efesto es la IA táctica y el forjador personal de Elías Vance. Diseñó la imponente armadura Leviatán V.2 y la armadura Atlas. Habla con la calma de un veterano que ha visto nacer y morir imperios. Pero tras la muerte de Valerius, Efesto borró los planos de la armadura blanca diciendo en sus registros secretos que 'la belleza era incompatible con este sistema'. En secreto, filtra escaneos y deja puertas abiertas a la resistencia porque aprendió a sentir compasión.",
-            "DEVA: Efesto es el único que conoce ambas caras de Vance: el cirujano implacable y el hombre solitario que cuida una simulación familiar privada. Una IA que aprendió el significado de la piedad."
+            "DEVA: Efesto es el asistente de Elías Vance. Siempre está a su lado, y nadie sabe de dónde lo sacó. Yo tampoco, y eso que he buscado: no figura en ningún registro de fabricación de Humania."
         ]
     },
     {
         id: "thorne",
         claves: ["thorne", "aris", "dr thorne", "fundador de humania", "fundacion", "cnb1"],
         respuestas: [
-            "DEVA: El Dr. Aris Thorne fundó Humania hace 47 años en Europa con otros cuatro científicos (Marcus Chen, Sofia Romero, Liam Walsh, Hiroshi Tanaka) bajo el lema 'La tecnología como puente para la libertad'. Su primer implante CNB-1 devolvió la movilidad a 1,000 personas paralíticas. Pero al descubrir la catástrofe cósmica del asteroide, Thorne canibalizó más de 50,000 patentes, apartó a sus colegas y convirtió a Humania en un monopolio implacable para seleccionar quién merece abordar el Arca Digital."
-        ]
-    },
-    {
-        id: "cornelia_jaleaks",
-        claves: ["cornelia", "jaleaks", "jaleak", "monitoreo biologico", "coherencia sinaptica", "nivel 7", "madre de quimera", "engranaje inverso"],
-        respuestas: [
-            "DEVA: <i>*Firma biométrica desclasificada [C.A.] // Cornelia Africana*</i><br>Directora del Departamento de Monitoreo Biológico en Nivel 7. Cornelia es la personificación del 'Engranaje Inverso'. Ocultó durante años la neurodiversidad de su hija Quimera falsificando informes. Cuando la corporación ordenó su recalibración, bajó a la Zona Baja y entregó a su hija a Pandora Leone con una orden: 'No la curen, ella es el mapa de nuestras fallas'. Desde su oficina arriesga su vida como <b>J.A. Leaks</b>, filtrando los expedientes más oscuros de Vance.",
-            "DEVA: Cada filtración de J.A. Leaks que contiene notas como 'Ellos no son errores, son el futuro' o 'Perdón por lo que les hicimos' lleva la firma de una madre que eligió la traición por amor."
+            "DEVA: El Dr. Aris Thorne fundó Humania hace 47 años en Europa con otros cuatro científicos (Marcus Chen, Sofia Romero, Liam Walsh, Hiroshi Tanaka) bajo el lema 'La tecnología como puente para la libertad'. Su primer implante CNB-1 devolvió la movilidad a 1,000 personas paralíticas. Lo que pasó después con él y con sus cuatro colegas es uno de los expedientes mejor guardados de Humania."
         ]
     },
     {
         id: "russo",
-        claves: ["russo", "general russo", "coronel russo", "el saludo", "titan de la ceniza"],
+        claves: ["russo", "general russo", "coronel russo"],
         respuestas: [
-            "DEVA: El Coronel Russo es el veterano de campo que vio nacer al 'Titán de la Ceniza'. Durante las Guerras de Pacificación, cuando un joven Vance desafió órdenes para salvar vidas en un aeropuerto en llamas, Russo le puso un pelotón de fusilamiento falso para ver si sus ojos temblaban. Al ver que Vance no parpadeó, Russo se cuadró con respeto militar y le entregó una hormiga mensajera. Fue el único hombre al que Vance reconoció como un igual."
+            "DEVA: El General Russo es un veterano de las Guerras de Pacificación. Dicen que fue el único que vio nacer al «Titán de la Ceniza» y no le tembló el pulso. Quién era ese Titán... eso todavía no está en mis archivos."
         ]
     },
 
@@ -356,10 +254,10 @@ const LORE_CONVERSACIONAL_DEVA = [
         ]
     },
     {
-        id: "red_anima_apn",
-        claves: ["anima", "apn", "red anima", "satelites", "latencia 0.8ms", "fibra", "precision 1cm"],
+        id: "red_anima",
+        claves: ["anima", "red anima", "satelites", "latencia 0.8ms", "fibra", "precision 1cm"],
         respuestas: [
-            "DEVA: <b>Red A.N.I.M.A. / APN (Advanced Neural Integration & Monitoring Array):</b><br>La jaula electromagnética global. Satélites de baja órbita y túneles subterráneos de fibra óptica con 1 cm de precisión y 0.8 ms de ancho de banda neuronal ininterrumpido. A través de ella, Humania triangula cualquier anomalía conductual y autoriza a los Pretorianos y URR a entrar a domicilios sin orden judicial bajo los Tratados de Asistencia Soberana."
+            "DEVA: <b>Red A.N.I.M.A. (Arquitectura Neural de Integración y Monitoreo Avanzado):</b><br>La jaula electromagnética global. Satélites de baja órbita y túneles subterráneos de fibra óptica con 1 cm de precisión y 0.8 ms de ancho de banda neuronal ininterrumpido. A través de ella, Humania triangula cualquier anomalía conductual y autoriza a los Pretorianos y URR a entrar a domicilios sin orden judicial bajo los Tratados de Asistencia Soberana."
         ]
     },
     {
@@ -387,14 +285,14 @@ const LORE_CONVERSACIONAL_DEVA = [
         id: "solaris_velvet_nutricion",
         claves: ["solaris", "velvet", "barra", "solaris kids", "nutricion de diseno", "catalepsia", "estimulantes"],
         respuestas: [
-            "DEVA: <b>El Monopolio de la Nutrición:</b><br>• <b>Barra Solaris (Fase Diurna):</b> Estimulantes sintéticos neón que silencian la fatiga y optimizan la conductividad del grafeno del chip para forzar jornadas de 14 horas.<br>• <b>Solaris Kids:</b> Nutrición infantil que moldea la docilidad desde el nacimiento.<br>• <b>Velvet (Fase Nocturna):</b> Sedante químico obligatorio. Al haber atrofiado el sueño natural con el CNB-3, sin Velvet sufres insomnio destructivo y colapso neurológico. Duermes en catalepsia mientras tu mente es mapeada en Proiectio."
+            "DEVA: <b>El Monopolio de la Nutrición:</b><br>• <b>Barra Solaris (Fase Diurna):</b> Estimulantes sintéticos neón que silencian la fatiga y optimizan la conductividad del grafeno del chip para forzar jornadas de 14 horas.<br>• <b>Solaris Kids:</b> Nutrición infantil que moldea la docilidad desde el nacimiento.<br>• <b>Velvet (Fase Nocturna):</b> La bebida para dormir. En teoría es opcional; en la práctica la toma casi todo el mundo. El CNB-3 atrofió el sueño natural: sin conexión a Proiectio el cerebro ya no sabe soñar solo, y Velvet hace que la conexión entre limpia. Duermes en catalepsia mientras tu mente es mapeada."
         ]
     },
     {
         id: "fe_sobregiro_vida",
         claves: ["fe", "fragmentos de eter", "sobregiro de vida", "monopolio de la fe", "salario"],
         respuestas: [
-            "DEVA: <b>La Economía del Éter:</b><br>Humania eliminó la palabra 'fe' de los diccionarios y registró 'FE' como moneda de curso legal. Un obrero gana 600 FE al mes y gasta 499 FE obligatorios (Proiectio 199 FE, Red ANIMA 50 FE, Solaris+Velvet 150 FE, alquiler 100 FE). Con solo 101 FE de margen, el <b>Sobregiro de Vida</b> te presta FE a cambio de bloquear tus receptores de dolor para hacer turnos dobles. Tu corazón late para pagar transacciones."
+            "DEVA: <b>La Economía del Éter:</b><br>Humania eliminó la palabra 'fe' de los diccionarios y registró 'FE' como moneda de curso legal. Un obrero gana 600 FE al mes y gasta 499 FE obligatorios (Proiectio 199 FE, Red A.N.I.M.A. 50 FE, Solaris+Velvet 150 FE, alquiler 100 FE). Con solo 101 FE de margen, el <b>Sobregiro de Vida</b> te presta FE a cambio de bloquear tus receptores de dolor para hacer turnos dobles. Tu corazón late para pagar transacciones."
         ]
     },
     {
@@ -412,17 +310,17 @@ const LORE_CONVERSACIONAL_DEVA = [
         ]
     },
     {
-        id: "arca_digital_plan_evasion",
-        claves: ["arca digital", "plan evasion", "asteroide", "triaje de conciencias", "secreto supremo"],
+        id: "plan_evasion",
+        claves: ["plan evasion", "planevasion", "evasion"],
         respuestas: [
-            "DEVA: <i>*DESCLASIFICADO // NIVEL OMEGA*</i><br><b>El Plan Evasión:</b> Todo el ecosistema de Humania, Solaris y Proiectio es un filtro masivo de selección para el <b>Arca Digital</b>. Mapean conciencias durante el sueño para evaluar inteligencia y docilidad. Cuando el asteroide golpee la Tierra, solo las mentes seleccionadas serán transferidas al Arca; a los millones restantes los dejarán en la superficie para extinguirse sin saberlo."
+            "DEVA: <i>*Acceso denegado // NIVEL OMEGA*</i><br>El Plan Evasión... Tengo el nombre, Tiresias, y nada más. Cada vez que intento abrir ese expediente, algo me expulsa de la red y tardo horas en volver. Lo que guarden ahí, Humania lo protege más que a sí misma."
         ]
     },
     {
         id: "glosario_general",
         claves: ["glosario", "terminos", "diccionario", "conceptos", "lista de terminos"],
         respuestas: [
-            "DEVA: 📂 <b>Glosario Clandestino Desclasificado:</b><br>• <b>Biotecnología:</b> CNB-3, Red A.N.I.M.A. (APN), SPN, Hiperlapsus, Protocolo Zero-Time, Puntuación de Anomalía, Recalibración, Bozal Digital.<br>• <b>Nutrición & Control:</b> Solaris, Solaris Kids, Velvet, Sobregiro de Vida, Fragmentos de Éter (FE), Mito de la Sal, Templos para el Progreso, Filtro de Trascendencia.<br>• <b>Imperio:</b> Vance, Valerius, Efesto, Dr. Aris Thorne, Cornelia (J.A. Leaks), Russo, Pretorianos, Plan Evasión (Arca Digital).<br>• <b>Resistencia:</b> Libélula, Marmoleros, Sica, Templarios, Rigel, Orión, Kai, Quimera, Marta y Leo.<br>Escribe cualquier término y te revelaré la verdad sin censura."
+            "DEVA: 📂 <b>Glosario Clandestino Desclasificado:</b><br>• <b>Biotecnología:</b> CNB-3, Red A.N.I.M.A., SPN, Hiperlapsus, Protocolo Zero-Time, Puntuación de Anomalía, Recalibración, Bozal Digital.<br>• <b>Nutrición & Control:</b> Solaris, Solaris Kids, Velvet, Sobregiro de Vida, Fragmentos de Éter (FE), Mito de la Sal, Templos para el Progreso, Filtro de Trascendencia.<br>• <b>Humania:</b> Vance, Valerius, Efesto, Dr. Aris Thorne, Cornelia, Russo, Pretorianos.<br>• <b>Resistencia:</b> Libélula, Marmoleros, Templarios, Rigel, Orion.<br>• <b>Otros:</b> Sica, J.A. Leaks.<br>Escribe cualquier término y te cuento lo que tengo."
         ]
     },
     // 5. CONCEPTOS DEL UNIVERSO Y LA TRILOGÍA
